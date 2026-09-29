@@ -2,12 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Cosmic Ice Cream · Home</title>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmic Ice Cream · Kothi ice cream in Patna, Marine Drive</title>
+<meta name="description" content="Old-school kothi ice cream, churned fresh and served in clay cups. Visit us at Marine Drive, Patna, 4 PM to 10 PM, or book the Cosmic cart for your party.">
+<link rel="canonical" href="https://cosmicicecream.in/">
+<meta name="theme-color" content="#F4B6CF">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Cosmic Ice Cream">
+<meta property="og:title" content="Cosmic Ice Cream · Kothi ice cream in Patna, Marine Drive"><meta property="og:description" content="Old-school kothi ice cream, churned fresh and served in clay cups. Visit us at Marine Drive, Patna, 4 PM to 10 PM, or book the Cosmic cart for your party.">
+<meta property="og:url" content="https://cosmicicecream.in/"><meta property="og:image" content="https://cosmicicecream.in/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://cosmicicecream.in/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "IceCreamShop",
+  "name": "Cosmic Ice Cream",
+  "url": "https://cosmicicecream.in/",
+  "image": "https://cosmicicecream.in/og-image.jpg",
+  "telephone": "+91-7372000150",
+  "address": { "@type": "PostalAddress", "streetAddress": "Marine Drive", "addressLocality": "Patna", "addressRegion": "Bihar", "addressCountry": "IN" },
+  "openingHours": "Mo-Su 16:00-22:00",
+  "sameAs": ["https://www.instagram.com/cosmicicecream.in"]
+}
+</script>
+<script>
+  window.cosmicLoadAnalytics = function () {
+    if (window.__ga) return; window.__ga = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  };
+  try { if (localStorage.getItem('cosmic-consent') === 'all') window.cosmicLoadAnalytics(); } catch (e) {}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&amp;family=Pacifico&amp;family=Permanent+Marker&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
 <style>
@@ -403,8 +434,14 @@ html,body{-webkit-text-size-adjust:100%}
 @media (max-width:1000px){.mgrid{grid-template-columns:minmax(0,1fr);gap:40px}}
 @media (max-width:760px){.open{margin-left:0;font-size:11px}.logo .badge{width:40px;height:40px}.menu{padding:80px 16px}.mtop{flex-direction:column;align-items:flex-start}.mcol li{font-size:16px}.wa{right:16px;bottom:84px;width:56px;padding:0;justify-content:center}.wa span{display:none}}
 @media (prefers-reduced-motion:reduce){.intro{display:none}.card{animation-delay:0s!important}}
+@media (max-width:760px){.hnav{gap:8px!important}.logo .lw small{display:none}.logo b{font-size:22px}.open{margin-left:0;padding:6px 10px;font-size:10px}}
 </style>
-</helmet>
+
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-view">
+
 <div class="site" id="top" style="--pg: {{t.pg}}; --c1: {{t.c1}}; --c2: {{t.c2}}; --hd: {{t.hd}}">
 
 <div class="cur" aria-hidden="true"><span>TASTE</span></div>
@@ -420,11 +457,11 @@ html,body{-webkit-text-size-adjust:100%}
 <div class="taste" aria-hidden="true">Choose your taste</div>
 
 <nav class="hnav" aria-label="Main">
-<a class="logo" href="#top" aria-label="Cosmic Ice Cream, home"><img class="badge" src="assets/badge-front.png" alt=""><span class="lw"><b>Cosmic</b><small>ICE CREAM</small></span></a><span class="open {{openCls}}"><i></i>{{openTxt}}</span>
+<a class="logo" href="#top" aria-label="Cosmic Ice Cream, home"><img class="badge" src="/assets/badge-front.png" alt=""><span class="lw"><b>Cosmic</b><small>ICE CREAM</small></span></a><span class="open {{openCls}}"><i></i>{{openTxt}}</span>
 <div class="links"><span class="blob" aria-hidden="true"></span>
 <a href="#flavours" onClick="{{go}}">Flavours</a>
 <a href="#menu" onClick="{{go}}">Menu</a>
-<a href="Kothi.dc.html">How We Make It</a>
+<a href="/how-we-make-it">How We Make It</a>
 <a href="#build" onClick="{{go}}">Build</a>
 <a href="#sundays" onClick="{{go}}">Sundays</a>
 <a href="#parties" onClick="{{go}}">Parties</a>
@@ -500,14 +537,14 @@ html,body{-webkit-text-size-adjust:100%}
 <div class="drop"><h3>Brownie Supernova</h3><p>Warm brownie, dark chocolate kothi ice cream, caramel and chocolate crumble.</p></div>
 <button type="button" class="btn" onClick="{{addSunday}}">See this Sunday's drop</button>
 </div>
-<div class="ph" data-reveal="1" data-taste="1" data-fp="1"><img src="assets/sundae.webp" alt="Brownie Supernova sundae with chocolate and caramel sauce" loading="lazy"></div>
+<div class="ph" data-reveal="1" data-taste="1" data-fp="1"><img src="/assets/sundae.webp" alt="Brownie Supernova sundae with chocolate and caramel sauce" loading="lazy"></div>
 </div>
 </section>
 
 <!-- HOT MEETS COLD -->
 <section class="feat warm" aria-labelledby="h-hot">
 <div class="wrap g">
-<div class="ph" data-reveal="1" data-taste="1" data-fp="1"><img src="assets/brownie.webp" alt="Vanilla scoop melting on a warm brownie" loading="lazy">
+<div class="ph" data-reveal="1" data-taste="1" data-fp="1"><img src="/assets/brownie.webp" alt="Vanilla scoop melting on a warm brownie" loading="lazy">
 <div class="steam" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M30 100 C20 80 40 70 30 50 C22 34 38 24 32 6"></path><path d="M52 100 C42 82 62 72 52 52 C44 36 60 26 54 8"></path><path d="M74 100 C64 80 84 70 74 50 C66 34 82 24 76 6"></path></svg></div>
 </div>
 <div data-stagger="1">
@@ -606,7 +643,7 @@ html,body{-webkit-text-size-adjust:100%}
 <g fill="#E3D6EA"><rect x="240" y="280" width="70" height="40" rx="10"></rect><rect x="440" y="270" width="80" height="44" rx="10"></rect><rect x="60" y="460" width="70" height="40" rx="10"></rect><rect x="470" y="450" width="80" height="40" rx="10"></rect></g>
 </svg>
 <span class="pulse" aria-hidden="true"></span>
-<div class="cartpin"><img src="assets/cart.webp" alt="The Cosmic Ice Cream cart"><span class="tag"><b>Cosmic cart</b>Marine Drive · 4 to 10 PM</span></div>
+<div class="cartpin"><img src="/assets/cart.webp" alt="The Cosmic Ice Cream cart"><span class="tag"><b>Cosmic cart</b>Marine Drive · 4 to 10 PM</span></div>
 </div>
 </div>
 </div>
@@ -619,18 +656,18 @@ html,body{-webkit-text-size-adjust:100%}
 <h2 id="h-order">Okay.<br>Now you're hungry.</h2>
 <div class="ctas" style="margin-top: 30px"><a class="btn" href="#enquiry" onClick="{{toEnquiry}}">Order Now</a><a class="btn line" href="#find" onClick="{{go}}">Find a store</a><a class="btn line" href="#parties" onClick="{{go}}">Book Cosmic</a></div>
 </div>
-<div class="cone3" data-taste="1"><img src="assets/c-triple.webp" alt="Three scoop Cosmic cone: vanilla, pistachio and chocolate brownie" loading="lazy"></div>
+<div class="cone3" data-taste="1"><img src="/assets/c-triple.webp" alt="Three scoop Cosmic cone: vanilla, pistachio and chocolate brownie" loading="lazy"></div>
 </div>
 </section>
 
 <footer class="foot">
 <div class="wrap">
 <div class="fgrid2">
-<div><img src="assets/badge-front.png" alt="Cosmic Ice Cream logo" style="width: 96px; height: 96px; margin-bottom: 14px"><div style="font-family: 'Permanent Marker', cursive; font-size: 46px; line-height: 1">Cosmic</div><div style="font-size: 10px; letter-spacing: .4em; font-weight: 700; margin-top: 4px">ICE CREAM</div><p style="font-family: Pacifico, cursive; font-size: 20px; margin: 18px 0 0; color: #F4B6CF">Made the old-school way.</p>
+<div><img src="/assets/badge-front.png" alt="Cosmic Ice Cream logo" style="width: 96px; height: 96px; margin-bottom: 14px"><div style="font-family: 'Permanent Marker', cursive; font-size: 46px; line-height: 1">Cosmic</div><div style="font-size: 10px; letter-spacing: .4em; font-weight: 700; margin-top: 4px">ICE CREAM</div><p style="font-family: Pacifico, cursive; font-size: 20px; margin: 18px 0 0; color: #F4B6CF">Made the old-school way.</p>
 <div class="socials"><a href="https://www.instagram.com/cosmicicecream.in" target="_blank" rel="noopener" aria-label="Instagram @cosmicicecream.in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a><a href="https://wa.me/917372000150" target="_blank" rel="noopener" aria-label="WhatsApp +91 73720 00150"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"></path></svg></a></div></div>
 <div><h4>Eat</h4><ul><li><a href="#flavours" onClick="{{go}}">Flavours</a></li><li><a href="#sundays" onClick="{{go}}">Cosmic Sundays</a></li><li><a href="#build" onClick="{{go}}">Build a scoop</a></li></ul></div>
 <div><h4>Cosmic</h4><ul><li><a href="#parties" onClick="{{go}}">Parties</a></li><li><a href="#find" onClick="{{go}}">Locations</a></li><li><a href="#find" onClick="{{go}}">Contact</a></li></ul></div>
-<div><h4>Legal</h4><ul><li><a href="Privacy.dc.html">Privacy policy</a></li><li><a href="Terms.dc.html">Terms &amp; conditions</a></li><li><a href="Terms.dc.html#refunds">Refund / Cancellation</a></li><li><a href="Terms.dc.html#delivery">Delivery policy</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="/privacy">Privacy policy</a></li><li><a href="/terms">Terms &amp; conditions</a></li><li><a href="/terms#refunds">Refund / Cancellation</a></li><li><a href="/terms#delivery">Delivery policy</a></li></ul></div>
 </div>
 <div class="brandbig" data-split="1" aria-hidden="true"><span class="m"><span class="ch" style="--i:0">C</span></span><span class="m"><span class="ch" style="--i:1">o</span></span><span class="m"><span class="ch" style="--i:2">s</span></span><span class="m"><span class="ch" style="--i:3">m</span></span><span class="m"><span class="ch" style="--i:4">i</span></span><span class="m"><span class="ch" style="--i:5">c</span></span></div>
 <div class="legal"><span>© 2026 Cosmic Ice Cream · Marine Drive, Patna · <a href="tel:+917372000150">+91 73720 00150</a> · 4 PM to 10 PM · <a href="https://www.instagram.com/cosmicicecream.in" target="_blank" rel="noopener">@cosmicicecream.in</a></span><span>Made slowly. Gone quickly.</span></div>
@@ -638,16 +675,16 @@ html,body{-webkit-text-size-adjust:100%}
 </footer>
 
 <div class="cookie {{cookieCls}}" role="dialog" aria-live="polite" aria-label="Cookie consent">
-<p>We use a few cookies to see how people use this site and improve it. No selling of data. Read our <a href="Privacy.dc.html">privacy policy</a>.</p>
+<p>We use a few cookies to see how people use this site and improve it. No selling of data. Read our <a href="/privacy">privacy policy</a>.</p>
 <div class="row2"><button type="button" class="btn sm" onClick="{{cookieYes}}">Accept</button><button type="button" class="btn line sm" onClick="{{cookieNo}}">Only essential</button></div>
 </div>
-<div class="intro {{introCls}}" aria-hidden="true"><div class="ib"><img class="ibadge" src="assets/badge-front.png" alt=""><div class="icup"><img class="iscoop" src="assets/s-vanilla.webp" alt=""><svg viewBox="0 0 240 120"><path d="M6 18 C20 96 70 112 120 112 C170 112 220 96 234 18 Z" fill="#C8662F"></path><ellipse cx="120" cy="18" rx="114" ry="14" fill="#9A4A20"></ellipse></svg></div><p>Made the old-school way</p></div></div>
+<div class="intro {{introCls}}" aria-hidden="true"><div class="ib"><img class="ibadge" src="/assets/badge-front.png" alt=""><div class="icup"><img class="iscoop" src="/assets/s-vanilla.webp" alt=""><svg viewBox="0 0 240 120"><path d="M6 18 C20 96 70 112 120 112 C170 112 220 96 234 18 Z" fill="#C8662F"></path><ellipse cx="120" cy="18" rx="114" ry="14" fill="#9A4A20"></ellipse></svg></div><p>Made the old-school way</p></div></div>
 <a class="wa" href="https://wa.me/917372000150?text=Hi%20Cosmic%2C%20I%20want%20to%20book%20the%20cart%20for%20my%20event" target="_blank" rel="noopener" aria-label="Chat with Cosmic on WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"></path></svg><span>Book on WhatsApp</span></a>
 <div class="mbar"><a class="btn" href="#enquiry" onClick="{{toEnquiry}}">Order Now</a></div>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7600}}'>
-var CB = 'assets/';
+</template>
+<script type="text/x-dc">
+var CB = '/assets/';
 var C_F = [
   {name:'Moon Dust Brownie', cone:CB+'c-brownie.webp', scoop:CB+'s-brownie.webp', ing:'Chocolate kothi ice cream, brownie chunks, chocolate crumble.', desc:'Chocolate kothi ice cream loaded with brownie chunks and chocolate crumble. Made in small batches, gone fast.', pg:'#F1E2DA', c1:'#D8B4A2', c2:'#F2D7B0', hd:'#5A2E22', tb:'#F6E4DA', price:110},
   {name:'Pistachio Orbit', cone:CB+'c-pista.webp', scoop:CB+'s-pista.webp', ing:'Pistachio ice cream, roasted pistachios.', desc:'Silky pistachio ice cream folded with roasted pistachios. Nutty, green and very hard to share.', pg:'#EDF2DE', c1:'#CDDDA4', c2:'#F4E4B4', hd:'#56632A', tb:'#EEF3DF', price:120},
@@ -799,11 +836,12 @@ class Component extends DCLogic {
       err: { name: !!s.err.name, phone: !!s.err.phone, date: !!s.err.date, nameInv: s.err.name ? 'true' : 'false', phoneInv: s.err.phone ? 'true' : 'false', dateInv: s.err.date ? 'true' : 'false' },
       today: new Date().toISOString().slice(0, 10),
       cookieCls: s.cookie ? 'show' : '',
-      cookieYes: function(){ try { window.localStorage.setItem('cosmic-consent', 'all'); } catch(e){} self.setState({cookie: false}); },
+      cookieYes: function(){ try { window.localStorage.setItem('cosmic-consent', 'all'); } catch(e){} if(window.cosmicLoadAnalytics) window.cosmicLoadAnalytics(); self.setState({cookie: false}); },
       cookieNo: function(){ try { window.localStorage.setItem('cosmic-consent', 'essential'); } catch(e){} self.setState({cookie: false}); }
     };
   }
 }
 </script>
+<script src="/js/dc.js"></script>
 </body>
 </html>

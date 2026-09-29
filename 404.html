@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Cosmic Ice Cream</title>
+<meta name="description" content="This page melted away.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F4B6CF">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Cosmic Ice Cream">
+<meta property="og:title" content="Page not found · Cosmic Ice Cream"><meta property="og:description" content="This page melted away.">
+<meta property="og:url" content="https://cosmicicecream.in/404"><meta property="og:image" content="https://cosmicicecream.in/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://cosmicicecream.in/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<script>
+  window.cosmicLoadAnalytics = function () {
+    if (window.__ga) return; window.__ga = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  };
+  try { if (localStorage.getItem('cosmic-consent') === 'all') window.cosmicLoadAnalytics(); } catch (e) {}
+</script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&amp;family=Poppins:wght@400;600;800&amp;display=swap">
+<style>
+body{margin:0;font-family:Poppins,sans-serif;background:#FBE3EC;color:#2A1A22}
+.nf{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;gap:10px}
+.big{font-weight:800;font-size:clamp(120px,20vw,240px);line-height:.9;letter-spacing:-.04em;display:flex;align-items:center}
+.big img{height:.95em;margin:0 -.05em;animation:melt 3s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes melt{50%{transform:rotate(-6deg) translateY(6px)}}
+h1{font-weight:800;font-size:clamp(28px,3.4vw,44px);margin:10px 0 0}
+p{font-size:17px;margin:0 0 20px;max-width:440px;line-height:1.6}
+.btn{display:inline-flex;align-items:center;height:52px;padding:0 28px;border-radius:999px;background:#2A1A22;color:#FFF8F0;font-weight:700;text-decoration:none}
+.btn:hover{color:#F4B6CF}
+</style>
+
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-view">
+
+<main class="nf">
+<div class="big" aria-hidden="true">4<img src="/assets/s-mango.webp" alt="">4</div>
+<h1>This scoop melted away.</h1>
+<p>The page you're looking for doesn't exist or has moved. The ice cream is still here though.</p>
+<a class="btn" href="/">Back to Cosmic</a>
+</main>
+</template>
+<script type="text/x-dc">
+class Component extends DCLogic { renderVals(){ return {}; } }
+</script>
+<script src="/js/dc.js"></script>
+</body>
+</html>

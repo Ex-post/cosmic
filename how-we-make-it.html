@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Cosmic · How We Make It</title>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How We Make It · Cosmic Ice Cream</title>
+<meta name="description" content="Hand-turned in a kothi packed with ice and salt. See how every Cosmic scoop is made, and the cart that brings it to your party.">
+<link rel="canonical" href="https://cosmicicecream.in/how-we-make-it">
+<meta name="theme-color" content="#F4B6CF">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Cosmic Ice Cream">
+<meta property="og:title" content="How We Make It · Cosmic Ice Cream"><meta property="og:description" content="Hand-turned in a kothi packed with ice and salt. See how every Cosmic scoop is made, and the cart that brings it to your party.">
+<meta property="og:url" content="https://cosmicicecream.in/how-we-make-it"><meta property="og:image" content="https://cosmicicecream.in/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://cosmicicecream.in/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<script>
+  window.cosmicLoadAnalytics = function () {
+    if (window.__ga) return; window.__ga = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  };
+  try { if (localStorage.getItem('cosmic-consent') === 'all') window.cosmicLoadAnalytics(); } catch (e) {}
+</script>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&amp;family=Permanent+Marker&amp;family=Poppins:wght@400;500;600&amp;display=swap">
 <style>
 body{margin:0;font-family:Poppins,sans-serif;background:#120B1A;color:#F3ECE4}
@@ -161,12 +180,17 @@ html,body{-webkit-text-size-adjust:100%}
 .cta .btn.ghost{--fill:#120B1A;--dc:transparent}
 .cta .btn.ghost:hover{color:#F3ECE4!important}
 </style>
-</helmet>
+
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-view">
+
 <div class="pg">
 <nav class="nav"><div class="wrap">
-<a class="logo" href="Main.dc.html" style="display: flex; align-items: center; gap: 10px"><img src="assets/badge-front.png" alt="" style="width: 42px; height: 42px">Cosmic</a>
-<div class="links"><a href="#process">Process</a><a href="#cart">The cart</a><a href="#clay">Clay cups</a><a href="Main.dc.html">Home</a></div>
-<a class="btn" href="Main.dc.html#enquiry">Order now</a>
+<a class="logo" href="/" style="display: flex; align-items: center; gap: 10px"><img src="/assets/badge-front.png" alt="" style="width: 42px; height: 42px">Cosmic</a>
+<div class="links"><a href="#process">Process</a><a href="#cart">The cart</a><a href="#clay">Clay cups</a><a href="/">Home</a></div>
+<a class="btn" href="/#enquiry">Order now</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -269,14 +293,14 @@ html,body{-webkit-text-size-adjust:100%}
 
 <section class="cart" id="cart"><div class="wrap">
 <div class="sh" style="margin-bottom: 0"><div><div class="ey">The Cosmic cart</div><h2 class="serif">The machine is<br><i>part of the show.</i></h2></div><p>We don't hide the equipment in a kitchen. The kothi turns right in front of you, at the parlour and at your party.</p></div>
-<div class="cartshow"><div class="glow" aria-hidden="true"></div><img src="assets/cart.webp" alt="The Cosmic Ice Cream cart with its awning, lit menu boards and glass display" loading="lazy"><span class="loc">Parked at Marine Drive, Patna · 4 to 10 PM</span></div>
+<div class="cartshow"><div class="glow" aria-hidden="true"></div><img src="/assets/cart.webp" alt="The Cosmic Ice Cream cart with its awning, lit menu boards and glass display" loading="lazy"><span class="loc">Parked at Marine Drive, Patna · 4 to 10 PM</span></div>
 <div class="cgrid">
 <div class="cc"><span class="n">01</span><div><b>Churned live</b><p>Every batch is made on the cart, so your scoop is minutes old.</p></div></div>
 <div class="cc"><span class="n">02</span><div><b>Built to travel</b><p>The same cart rolls into weddings, birthdays, college fests and brand events.</p></div></div>
 <div class="cc"><span class="n">03</span><div><b>Open to watch</b><p>Nothing behind a counter. Stand close, watch it turn, ask questions.</p></div></div>
 </div>
 <div class="clay" id="clay">
-<div class="ph"><img src="assets/clay.webp" alt="Handmade terracotta clay cup"></div>
+<div class="ph"><img src="/assets/clay.webp" alt="Handmade terracotta clay cup"></div>
 <div><div class="ey">Served in clay</div><h2 class="serif">Handmade cups,<br><i>earthy finish.</i></h2><p>Every scoop goes into a terracotta cup made by local potters. The clay keeps it cold a little longer and gives it that old-school taste.</p></div>
 </div>
 </div></section>
@@ -284,12 +308,12 @@ html,body{-webkit-text-size-adjust:100%}
 <section class="cta"><div class="wrap">
 <div class="ey">Earth-made. Cosmic-approved.</div>
 <h2 class="serif">Now go <i>eat some.</i></h2>
-<div class="ctas"><a class="btn" href="Main.dc.html#enquiry">Order now</a><a class="btn ghost" href="Main.dc.html">Book the cart</a></div>
+<div class="ctas"><a class="btn" href="/#enquiry">Order now</a><a class="btn ghost" href="/">Book the cart</a></div>
 </div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 Cosmic Ice Cream · Marine Drive, Patna · 4 PM to 10 PM</span><span><a href="tel:+917372000150">+91 73720 00150</a> · <a href="https://www.instagram.com/cosmicicecream.in" target="_blank" rel="noopener">Instagram</a></span></div></footer>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+</template>
+<script type="text/x-dc">
 class Component extends DCLogic {
   componentDidMount(){
     var mag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(!b) return; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); if(!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) && e.pointerType === 'mouse') b.style.translate = ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px ' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px'; };
@@ -302,5 +326,6 @@ class Component extends DCLogic {
   renderVals(){ return {}; }
 }
 </script>
+<script src="/js/dc.js"></script>
 </body>
 </html>

@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Cosmic · Terms &amp; Conditions</title>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms & Conditions · Cosmic Ice Cream</title>
+<meta name="description" content="Terms, refunds, cancellations and delivery policy for Cosmic Ice Cream.">
+<link rel="canonical" href="https://cosmicicecream.in/terms">
+<meta name="theme-color" content="#F4B6CF">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Cosmic Ice Cream">
+<meta property="og:title" content="Terms & Conditions · Cosmic Ice Cream"><meta property="og:description" content="Terms, refunds, cancellations and delivery policy for Cosmic Ice Cream.">
+<meta property="og:url" content="https://cosmicicecream.in/terms"><meta property="og:image" content="https://cosmicicecream.in/og-image.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://cosmicicecream.in/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<script>
+  window.cosmicLoadAnalytics = function () {
+    if (window.__ga) return; window.__ga = true;
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  };
+  try { if (localStorage.getItem('cosmic-consent') === 'all') window.cosmicLoadAnalytics(); } catch (e) {}
+</script>
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&amp;family=Poppins:wght@400;600;800&amp;display=swap">
 <style>
 body{margin:0;font-family:Poppins,sans-serif;background:#FFF8F0;color:#2A1A22}
@@ -22,9 +41,14 @@ p,li{font-size:16px;line-height:1.75}
 .box{margin-top:40px;padding:20px 22px;border-radius:20px;background:#FBE3EC}
 @media (max-width:760px){.doc{padding:24px 18px 70px}.top{margin-bottom:36px}h2{font-size:20px}p,li{font-size:15px}}
 </style>
-</helmet>
+
+</head>
+<body>
+<div id="dc-root"></div>
+<template id="dc-view">
+
 <main class="doc">
-<div class="top"><a class="logo" href="Main.dc.html">Cosmic</a><a href="Main.dc.html">Back to home</a></div>
+<div class="top"><a class="logo" href="/">Cosmic</a><a href="/">Back to home</a></div>
 <h1>Terms &amp; conditions</h1>
 <p class="meta">Last updated: [date of publishing]</p>
 <p>By using this website or ordering from Cosmic Ice Cream, you agree to these terms.</p>
@@ -44,9 +68,10 @@ p,li{font-size:16px;line-height:1.75}
 <p>Cosmic Ice Cream, Marine Drive, Patna, Bihar<br>Phone / WhatsApp: <a href="tel:+917372000150">+91 73720 00150</a></p>
 <div class="box">This is a starting template, not legal advice. Fill in the [bracketed] parts and have it reviewed before going live.</div>
 </main>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+</template>
+<script type="text/x-dc">
 class Component extends DCLogic { renderVals(){ return {}; } }
 </script>
+<script src="/js/dc.js"></script>
 </body>
 </html>
