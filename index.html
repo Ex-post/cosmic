@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cosmic Ice Cream · Kothi ice cream in Patna, Marine Drive</title>
 <meta name="description" content="Old-school kothi ice cream, churned fresh and served in clay cups. Visit us at Marine Drive, Patna, 4 PM to 10 PM, or book the Cosmic cart for your party.">
 <link rel="canonical" href="https://cosmicicecream.in/">
@@ -428,13 +428,34 @@ html,body{-webkit-text-size-adjust:100%}
 .iscoop{position:absolute;left:18px;bottom:44px;width:114px;animation:idrop .8s cubic-bezier(.34,1.56,.64,1) .8s both}
 @keyframes idrop{0%{transform:translateY(-70vh)}60%{transform:translateY(0) scale(1.1,.85)}100%{transform:none}}
 .intro p{margin:0;font-family:Fraunces,serif;font-style:italic;font-size:20px;color:#F4B6CF;animation:fade .6s 1.3s both}
-.card{animation-delay:2.1s!important}
 .wa{position:fixed;right:24px;bottom:24px;z-index:8300;display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 16px;border-radius:999px;background:#25D366;color:#fff;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 14px 30px rgba(37,211,102,.35);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .wa:hover{transform:translateY(-3px);color:#fff}
 @media (max-width:1000px){.mgrid{grid-template-columns:minmax(0,1fr);gap:40px}}
 @media (max-width:760px){.open{margin-left:0;font-size:11px}.logo .badge{width:40px;height:40px}.menu{padding:80px 16px}.mtop{flex-direction:column;align-items:flex-start}.mcol li{font-size:16px}.wa{right:16px;bottom:84px;width:56px;padding:0;justify-content:center}.wa span{display:none}}
 @media (prefers-reduced-motion:reduce){.intro{display:none}.card{animation-delay:0s!important}}
 @media (max-width:760px){.hnav{gap:8px!important}.logo .lw small{display:none}.logo b{font-size:22px}.open{margin-left:0;padding:6px 10px;font-size:10px}}
+
+/* tablet + small laptop */
+@media (min-width:761px) and (max-width:1180px){
+.stage{padding:20px}
+.card{height:auto;min-height:0;padding-bottom:28px}
+.hnav{flex-wrap:wrap;row-gap:12px;padding:22px 32px}
+.hnav .links{order:3;width:100%;overflow-x:auto;scrollbar-width:none;gap:6px}
+.hnav .links::-webkit-scrollbar{display:none}
+.hnav .links a{flex:0 0 auto;background:rgba(255,255,255,.6);border-radius:999px}
+.hnav .blob{display:none}
+.hcopy{position:relative;left:auto;top:auto;width:auto;max-width:620px;padding:10px 32px 0}
+.cones{position:relative;right:auto;top:auto;width:100%;height:480px;margin-top:10px}
+.circ1{width:80%;right:-20%;top:auto;bottom:22%}
+.circ2{width:46%;right:auto;left:-6%;bottom:-8%}
+.taste{top:auto;bottom:60%;font-size:44px}
+.thumbs{position:relative;left:auto;bottom:auto;padding:0 32px;overflow-x:auto;scrollbar-width:none}
+.thumbs .th:nth-child(n+5){display:flex}
+.th{flex:0 0 104px}
+.dots{position:relative;right:auto;bottom:auto;justify-content:center;margin-top:14px}
+.flv,.feat,.build,.party,.find,.order,.menu{padding-left:32px;padding-right:32px}
+.bstage{height:560px}
+}
 </style>
 
 </head>
@@ -678,7 +699,6 @@ html,body{-webkit-text-size-adjust:100%}
 <p>We use a few cookies to see how people use this site and improve it. No selling of data. Read our <a href="/privacy">privacy policy</a>.</p>
 <div class="row2"><button type="button" class="btn sm" onClick="{{cookieYes}}">Accept</button><button type="button" class="btn line sm" onClick="{{cookieNo}}">Only essential</button></div>
 </div>
-<div class="intro {{introCls}}" aria-hidden="true"><div class="ib"><img class="ibadge" src="/assets/badge-front.png" alt=""><div class="icup"><img class="iscoop" src="/assets/s-vanilla.webp" alt=""><svg viewBox="0 0 240 120"><path d="M6 18 C20 96 70 112 120 112 C170 112 220 96 234 18 Z" fill="#C8662F"></path><ellipse cx="120" cy="18" rx="114" ry="14" fill="#9A4A20"></ellipse></svg></div><p>Made the old-school way</p></div></div>
 <a class="wa" href="https://wa.me/917372000150?text=Hi%20Cosmic%2C%20I%20want%20to%20book%20the%20cart%20for%20my%20event" target="_blank" rel="noopener" aria-label="Chat with Cosmic on WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"></path></svg><span>Book on WhatsApp</span></a>
 <div class="mbar"><a class="btn" href="#enquiry" onClick="{{toEnquiry}}">Order Now</a></div>
 </div>
@@ -714,7 +734,7 @@ class Component extends DCLogic {
     this.state = { intro:true, now:Date.now(), cookie:false, err:{}, t0:Date.now(), i:0, prev:-1, sw:false, cart:0, base:'cone', scoops:[], tops:[], pkg:1, uid:0, toast:'', toastOn:false, sent:false };
   }
   componentDidMount(){
-    var selfI = this; setTimeout(function(){ selfI.setState({intro:false}); }, (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ? 0 : 1900); this._clock = setInterval(function(){ selfI.setState({now: Date.now()}); }, 60000);
+    var selfI = this; this._clock = setInterval(function(){ selfI.setState({now: Date.now()}); }, 60000);
     var mag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(!b) return; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); if(!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) && e.pointerType === 'mouse') b.style.translate = ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px ' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px'; };
     var unmag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(b && !b.contains(e.relatedTarget)){ b.style.translate = '0 0'; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); } };
     document.addEventListener('pointermove', mag, {passive:true}); document.addEventListener('pointerover', mag, {passive:true}); document.addEventListener('pointerout', unmag, {passive:true});
@@ -787,7 +807,7 @@ class Component extends DCLogic {
       for(var j = 0; j < 7; j++){ var sd = ti * 19 + j * 5 + id.length * 3; var st = 'left: ' + (6 + cRand(sd) * 82).toFixed(1) + '%; top: ' + (4 + cRand(sd + 1) * 55).toFixed(1) + '%; --r: ' + Math.round(cRand(sd + 2) * 180 - 90) + 'deg; animation-delay: ' + (j * 60) + 'ms'; if(t.cls === 'sprk') st += '; background: ' + C_SPR[j % C_SPR.length]; pieces.push({ key: id + j + n, cls: t.cls, style: st }); }
     });
     var price = base.price + s.scoops.reduce(function(a, sc){ return a + C_F[sc.f].price; }, 0) + s.tops.reduce(function(a, id){ return a + C_TOPS.filter(function(x){ return x.id === id; })[0].price; }, 0);
-    var ps = String(price); while(ps.length < 3) ps = '0' + ps;
+    var ps = String(price);
     return {
       t: { key: 'k' + s.i, name: f.name, desc: f.desc, cone: f.cone, pg: f.pg, c1: f.c1, c2: f.c2, hd: f.hd },
       swCls: s.sw ? 'sw' : '',
@@ -803,7 +823,6 @@ class Component extends DCLogic {
       go: go,
       cart: s.cart, hasCart: s.cart > 0,
       toastMsg: s.toast, toastCls: s.toastOn ? 'show' : '',
-      introCls: s.intro ? '' : 'done',
       openCls: self.isOpen() ? 'on' : '',
       openTxt: self.isOpen() ? 'Open now · till 10 PM' : 'Opens 4 PM today',
       toEnquiry: function(e){ e.preventDefault(); var f = document.getElementById('enquiry'); if(!f) return; f.classList.add('in'); window.scrollTo({top: f.getBoundingClientRect().top + window.scrollY - 24, behavior: self._reduce ? 'auto' : 'smooth'}); setTimeout(function(){ var n = document.getElementById('bn'); if(n) n.focus({preventScroll: true}); f.classList.remove('flash'); void f.offsetWidth; f.classList.add('flash'); }, self._reduce ? 0 : 700); },
