@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cosmic Ice Cream · Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&amp;family=Pacifico&amp;family=Permanent+Marker&amp;family=Poppins:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:root{--ink:#2A1A22;--cream:#FFF8F0;--spring:cubic-bezier(0.34,1.56,0.64,1);--smooth:cubic-bezier(0.65,0,0.35,1);--pg:#F3E6DF;--c1:#D9B8A8;--c2:#F2D7B0;--hd:#5A2E22}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Poppins,sans-serif;color:#2A1A22;background:#FFF8F0;overflow-x:hidden}
+a{color:#2A1A22}a:hover{color:#8A2F5A}
+*{box-sizing:border-box}
+img{display:block;max-width:100%}
+.site{position:relative;width:100%;overflow:clip;cursor:none}
+button,input,select,textarea,a{font-family:inherit;cursor:none}
+@media (hover:none){.site,button,input,select,textarea,a{cursor:auto}}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8A2F5A}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(40px,4.6vw,68px);line-height:1.05;letter-spacing:-.02em;margin:10px 0 0}
+.lead{font-size:17px;line-height:1.65;opacity:.88;margin:0}
+.wrap{max-width:1240px;margin:0 auto}
+section{position:relative}
+
+.cur{position:fixed;left:0;top:0;z-index:9500;pointer-events:none;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#2A1A22;will-change:transform;transition:width .25s var(--spring),height .25s var(--spring),margin .25s var(--spring),background .2s;display:flex;align-items:center;justify-content:center}
+.cur span{font-size:11px;font-weight:800;letter-spacing:.16em;color:#fff;opacity:0;transform:scale(.4);transition:all .25s var(--spring)}
+.cur.taste{width:78px;height:78px;margin:-39px 0 0 -39px;background:#8A2F5A}
+.cur.taste span{opacity:1;transform:none}
+.cur.btnh{width:34px;height:34px;margin:-17px 0 0 -17px;background:rgba(138,47,90,.35)}
+@media (hover:none){.cur{display:none}}
+.burst i{position:fixed;left:0;top:0;width:9px;height:4px;border-radius:4px;pointer-events:none;z-index:9600;opacity:0}
+.burst i.go{animation:burst .8s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0)}70%{opacity:1}100%{opacity:0;transform:translate(var(--dx),calc(var(--dy) + 50px)) rotate(var(--r))}}
+.toast{position:fixed;left:50%;top:24px;z-index:9100;transform:translate(-50%,-150px);padding:12px 22px 12px 12px;border-radius:999px;background:#2A1A22;color:#FFF8F0;font-weight:600;font-size:14px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 30px rgba(0,0,0,.25);transition:transform .6s var(--spring)}
+.toast.show{transform:translate(-50%,0)}
+.toast b{width:28px;height:28px;border-radius:50%;background:#F4B6CF;display:flex;align-items:center;justify-content:center}
+.flyer{position:fixed;left:0;top:0;width:70px;height:70px;z-index:9200;pointer-events:none;opacity:0}
+.flyer img{width:100%;height:100%;object-fit:contain}
+
+/* buttons */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 26px;border-radius:999px;border:2px solid var(--hd);background:var(--hd);color:#fff;font-weight:600;font-size:14px;text-decoration:none;isolation:isolate;transition:transform .35s var(--spring),color .3s,background .6s var(--smooth),border-color .6s var(--smooth)}
+.btn::before{content:"";position:absolute;left:-20%;width:140%;height:320%;top:100%;z-index:-1;background:#fff;border-radius:42%;transition:top .55s var(--smooth);animation:wave 5s linear infinite}
+.btn:hover{color:var(--hd)}
+.btn:hover::before{top:-70%}
+.btn:active{transform:scale(.96)}
+.btn.line{background:transparent;color:var(--hd)}
+.btn.line::before{background:var(--hd)}
+.btn.line:hover{color:#fff}
+.btn.sm{height:40px;padding:0 18px;font-size:13px}
+@keyframes wave{to{rotate:360deg}}
+
+[data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .8s var(--smooth),transform .9s var(--spring)}
+[data-reveal].in{opacity:1;transform:none}
+[data-stagger]>*{opacity:0;transform:translateY(36px);transition:opacity .7s var(--smooth),transform .8s var(--spring)}
+[data-stagger].in>*{opacity:1;transform:none}
+[data-stagger].in>*:nth-child(2){transition-delay:80ms}[data-stagger].in>*:nth-child(3){transition-delay:160ms}[data-stagger].in>*:nth-child(4){transition-delay:240ms}[data-stagger].in>*:nth-child(5){transition-delay:320ms}[data-stagger].in>*:nth-child(6){transition-delay:400ms}
+
+/* HERO (video style) */
+.stage{min-height:100vh;padding:36px 40px;background:var(--pg);transition:background-color .9s var(--smooth);display:flex;align-items:center;justify-content:center}
+.card{position:relative;width:100%;max-width:1320px;height:min(780px,calc(100vh - 72px));min-height:620px;background:var(--cream);border-radius:28px;overflow:hidden;box-shadow:0 40px 90px rgba(42,26,34,.14);animation:cardin 1s var(--spring) both}
+@keyframes cardin{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
+.circ1{position:absolute;right:-6%;top:-18%;width:62%;aspect-ratio:1/1;border-radius:50%;background:var(--c1);transition:background-color .9s var(--smooth),transform 1s var(--spring)}
+.circ2{position:absolute;right:26%;bottom:-20%;width:34%;aspect-ratio:1/1;border-radius:50%;background:var(--c2);transition:background-color .9s var(--smooth),transform 1s var(--spring);mix-blend-mode:multiply}
+.card.sw .circ1{transform:scale(.94) rotate(8deg)}
+.card.sw .circ2{transform:scale(1.08) translateY(-10px)}
+.taste{position:absolute;right:4%;top:12%;font-family:Pacifico,cursive;font-size:clamp(40px,4.6vw,72px);color:rgba(255,255,255,.85);white-space:nowrap;pointer-events:none}
+.hnav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:26px 48px}
+.logo{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:var(--hd);transition:color .6s}
+.logo b{font-family:'Permanent Marker',cursive;font-weight:400;font-size:26px;line-height:1}
+.logo small{font-size:7px;letter-spacing:.36em;font-weight:700}
+.hnav .links{position:relative;display:flex;gap:4px}
+.hnav .blob{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:999px;background:rgba(255,255,255,.7);transition:left .45s var(--spring),width .45s var(--spring),opacity .3s;opacity:0}
+.hnav .links:hover .blob{opacity:1}
+.hnav .links a{position:relative;z-index:1;padding:10px 16px;font-size:14px;font-weight:600;text-decoration:none;color:#2A1A22}
+.cartbtn{position:relative;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.8);color:#2A1A22;display:flex;align-items:center;justify-content:center}
+.cartbtn.wig{animation:wig .55s var(--spring)}
+@keyframes wig{25%{transform:rotate(-12deg) scale(1.08)}50%{transform:rotate(9deg)}75%{transform:rotate(-4deg)}}
+.bubble{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--hd);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;animation:pop .45s var(--spring)}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.hcopy{position:absolute;left:48px;top:130px;width:min(44%,520px);z-index:5}
+.hcopy h1{margin:0;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(40px,4.4vw,66px);line-height:1.04;letter-spacing:-.02em;color:var(--hd);transition:color .6s}
+.hcopy h1 .ln{display:block;overflow:hidden}
+.hcopy h1 .ln span{display:inline-block;animation:rise .8s var(--spring) both}
+.hcopy h1 .ln:nth-child(2) span{animation-delay:.08s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hcopy p{margin:18px 0 26px;font-size:15px;line-height:1.7;opacity:.85;max-width:400px;animation:fade .7s .15s both}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:.85;transform:none}}
+.hcopy .ctas{display:flex;gap:12px}
+.thumbs{position:absolute;left:48px;bottom:40px;z-index:6;display:flex;gap:14px}
+.th{width:104px;padding:10px 8px 10px;border-radius:18px;border:0;background:var(--tb);display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;transition:transform .35s var(--spring),box-shadow .3s;color:#2A1A22}
+.th img{width:62px;height:76px;object-fit:contain;transition:transform .4s var(--spring)}
+.th:hover{transform:translateY(-6px)}
+.th:hover img{transform:scale(1.1) rotate(-6deg)}
+.th.on{box-shadow:0 0 0 2px var(--hd),0 16px 30px rgba(42,26,34,.14);transform:translateY(-6px)}
+.th b{font-size:11px;line-height:1.2;font-weight:700}
+.th span{font-size:11px;opacity:.85}
+.cones{position:absolute;right:14%;top:8%;width:40%;height:92%;z-index:4;perspective:1200px}
+.cone{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none}
+.cone img{height:100%;width:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 40px 40px rgba(42,26,34,.22))}
+.cone.on{opacity:1;animation:conein 1.1s var(--spring) both}
+.cone.out{opacity:1;animation:coneout .8s cubic-bezier(.55,0,.8,.3) both}
+@keyframes conein{0%{transform:translate(28%,-70%) rotate(28deg) scale(.7);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}
+@keyframes coneout{0%{transform:none}100%{transform:translate(-40%,90%) rotate(-40deg) scale(.8);opacity:0}}
+.cone.on .bob{animation:bob 4.5s ease-in-out 1.1s infinite}
+.bob{height:100%;display:flex;align-items:center;justify-content:center;transform:rotateY(calc(var(--mx,0) * 10deg)) rotateX(calc(var(--my,0) * -6deg))}
+@keyframes bob{50%{translate:0 -14px}}
+.dots{position:absolute;right:48px;bottom:44px;z-index:6;display:flex;gap:6px;align-items:center}
+.dots button{width:44px;height:44px;border:0;background:none;display:flex;align-items:center;justify-content:center;padding:0}
+.dots i{width:9px;height:9px;border-radius:999px;background:rgba(42,26,34,.25);transition:width .4s var(--spring),background .3s}
+.dots button.on i{width:28px;background:var(--hd)}
+.arrows{display:flex;gap:8px;margin-left:10px}
+.arrows button{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(42,26,34,.2);background:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;color:#2A1A22;transition:transform .3s var(--spring)}
+.arrows button:hover{transform:scale(1.08)}
+
+/* flavours grid */
+.flv{padding:130px 40px;background:#FFF8F0}
+.flv .top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:50px}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.fc{position:relative;border-radius:28px;padding:22px 24px 26px;background:var(--b);overflow:hidden;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .45s var(--spring)}
+.fc .img{height:260px;display:flex;align-items:center;justify-content:center}
+.fc .img img{height:100%;object-fit:contain;transition:transform .6s var(--spring);filter:drop-shadow(0 20px 20px rgba(42,26,34,.18))}
+.fc:hover .img img{transform:translateY(-12px) rotate(8deg) scale(1.05)}
+.fc h3{margin:12px 0 4px;font-size:24px;font-weight:800;letter-spacing:-.01em}
+.fc p{margin:0 0 16px;font-size:14px;opacity:.85;line-height:1.5}
+.fc .row{display:flex;justify-content:space-between;align-items:center}
+.fc .pr{font-weight:800;font-size:18px}
+
+/* sundays / hot */
+.feat{padding:120px 40px}
+.feat .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center}
+.feat .ph{position:relative;border-radius:32px;overflow:hidden;aspect-ratio:4/5;max-height:640px;box-shadow:0 40px 80px rgba(42,26,34,.2)}
+.feat .ph img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.08 - var(--fp,0) * .08))}
+.feat.dark{background:#2A1A22;color:#FFF8F0}
+.feat.dark .eyebrow{color:#F4B6CF}
+.feat.dark .btn{--hd:#F4B6CF;color:#2A1A22}
+.feat.dark .btn:hover{color:#2A1A22}
+.drop{margin:26px 0 30px;padding:20px 22px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.drop h3{margin:0 0 6px;font-size:22px;font-weight:800;color:#F4B6CF}
+.drop p{margin:0;font-size:15px;line-height:1.6;opacity:.85}
+.steam{position:absolute;left:30%;top:4%;width:40%;height:40%;pointer-events:none}
+.steam svg{width:100%;height:100%;overflow:visible}
+.steam path{fill:none;stroke:rgba(255,255,255,.4);stroke-width:6;stroke-linecap:round;filter:blur(4px);animation:steam 4s ease-in-out infinite;opacity:0}
+.steam path:nth-child(2){animation-delay:1.3s}.steam path:nth-child(3){animation-delay:2.6s}
+@keyframes steam{0%{opacity:0;transform:translateY(40px)}40%{opacity:1}100%{opacity:0;transform:translateY(-60px)}}
+.warm{background:#F6E7DC}
+
+/* builder */
+.build{padding:130px 40px;background:#FDF0F4}
+.build .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.bstage{position:relative;height:620px;border-radius:32px;background:radial-gradient(60% 55% at 50% 45%,#fff 0%,#FBE3EC 70%,#F6CFDD 100%);overflow:hidden}
+.bstage .shadow{position:absolute;left:50%;bottom:26px;width:200px;height:22px;margin-left:-100px;border-radius:50%;background:rgba(42,26,34,.15);filter:blur(7px)}
+.bstage .base{position:absolute;left:50%;bottom:36px;transform:translateX(-50%);z-index:13}
+.bstage .sc{position:absolute;left:50%;animation:sdrop .85s var(--spring) both;transform-origin:50% 90%}
+.bstage .sc svg{width:100%;display:block;overflow:visible;filter:drop-shadow(0 8px 10px rgba(42,26,34,.18))}
+@keyframes sdrop{0%{transform:translateY(-720px)}55%{transform:translateY(0) scale(1.14,.82)}72%{transform:translateY(-12px) scale(.96,1.04)}100%{transform:none}}
+.tops{position:absolute;left:50%;width:170px;height:70px;margin-left:-85px;z-index:30}
+.tp{position:absolute;animation:tfall .9s cubic-bezier(.3,1.35,.5,1) both}
+@keyframes tfall{0%{transform:translateY(-600px)}100%{transform:translateY(0) rotate(var(--r))}}
+.tp.crumb{width:16px;height:14px;border-radius:3px;background:#4A2A22}
+.tp.cookie{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle,#EDE3D2 0 30%,#1E1414 32%)}
+.tp.pista{width:14px;height:10px;border-radius:50%;background:#9DB84A}
+.tp.sprk{width:13px;height:4px;border-radius:4px}
+.tp.chip{width:11px;height:10px;border-radius:3px;background:#2A1614}
+.sauce{position:absolute;left:50%;width:180px;height:90px;margin-left:-90px;z-index:25;transform-origin:50% 0;animation:pour .9s var(--smooth) both}
+@keyframes pour{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+.bpanel{padding:28px;border-radius:28px;background:#fff;box-shadow:0 20px 50px rgba(42,26,34,.06);display:flex;flex-direction:column;gap:18px;margin-top:24px}
+.bgroup{display:flex;flex-direction:column;gap:10px}
+.lab{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(42,26,34,.15);background:#fff;color:#2A1A22;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:transform .2s var(--spring),border-color .2s,background .2s}
+.pill:hover{transform:translateY(-2px);border-color:#2A1A22}
+.pill:active{transform:scale(.96)}
+.pill.on{background:#2A1A22;color:#fff;border-color:#2A1A22}
+.pill img{width:28px;height:28px;object-fit:contain}
+.bfoot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px dashed rgba(42,26,34,.2);flex-wrap:wrap}
+.price{display:flex;align-items:center;font-weight:800;font-size:44px;line-height:1}
+.dg{height:46px;overflow:hidden;display:inline-block}
+.dg .col{display:flex;flex-direction:column;transition:transform .7s var(--spring)}
+.dg .col span{height:46px}
+.hint{font-size:12px;opacity:.8;margin:4px 0 0}
+.build .btn{--hd:#2A1A22}
+
+/* parties */
+.party{padding:130px 40px;background:#FFF8F0}
+.party .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.chips span{padding:8px 14px;border-radius:999px;background:#FBE3EC;font-size:13px;font-weight:600}
+.station{padding:22px 24px;border-radius:24px;background:#2A1A22;color:#FFF8F0}
+.station h3{margin:0 0 6px;font-size:22px;font-weight:800;color:#F4B6CF}
+.station p{margin:0;font-size:15px;line-height:1.6;opacity:.85}
+.pkgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.pkg{padding:18px;border-radius:22px;background:#fff;border:1.5px solid rgba(42,26,34,.1);display:flex;flex-direction:column;gap:6px;text-align:left;color:#2A1A22;transition:transform .35s var(--spring)}
+.pkg:hover{transform:translateY(-4px)}
+.pkg.on{border-color:#2A1A22;box-shadow:0 0 0 3px #F4B6CF}
+.pkg b{font-size:18px;font-weight:800}
+.pkg span{font-size:13px;opacity:.85}
+.pkg em{font-style:normal;font-weight:700;font-size:13px;margin-top:4px}
+.form.flash{animation:fflash 1.2s ease}
+@keyframes fflash{0%{box-shadow:0 0 0 0 rgba(244,182,207,.9)}100%{box-shadow:0 0 0 18px rgba(244,182,207,0)}}
+.form{padding:32px;border-radius:28px;background:#fff;box-shadow:0 20px 50px rgba(42,26,34,.07)}
+.form h3{margin:0 0 18px;font-size:28px;font-weight:800}
+.fg2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field{position:relative}
+.field.full{grid-column:1 / -1}
+.field input,.field select,.field textarea{width:100%;height:58px;border-radius:16px;border:1.5px solid rgba(42,26,34,.14);background:#FFF8F0;padding:22px 16px 6px;font-size:15px;color:#2A1A22;outline:none;transition:border-color .3s,box-shadow .3s;appearance:none}
+.field textarea{height:110px;resize:none;padding-top:26px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#8A2F5A;box-shadow:0 0 0 5px rgba(244,182,207,.5)}
+.field label{position:absolute;left:17px;top:18px;font-size:15px;color:rgba(42,26,34,.6);pointer-events:none;transition:all .3s var(--spring)}
+.field input:focus + label,.field input:not(:placeholder-shown) + label,.field textarea:focus + label,.field textarea:not(:placeholder-shown) + label,.field.sel label{top:7px;font-size:11px;font-weight:700;color:#8A2F5A}
+.form .btn{--hd:#2A1A22}
+
+.err{display:block;margin-top:6px;font-size:12px;font-weight:600;color:#B3261E}
+.field input[aria-invalid="true"]{border-color:#B3261E}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.menulink{align-self:center;font-weight:700;font-size:14px;color:var(--hd);text-underline-offset:5px}
+.cookie{position:fixed;left:24px;bottom:24px;z-index:9300;max-width:420px;padding:20px 22px;border-radius:22px;background:#2A1A22;color:#FFF8F0;box-shadow:0 20px 50px rgba(0,0,0,.3);transform:translateY(160%);transition:transform .6s var(--spring)}
+.cookie.show{transform:none}
+.cookie p{margin:0 0 14px;font-size:14px;line-height:1.55}
+.cookie a{color:#F4B6CF}
+.cookie .row2{display:flex;gap:10px}
+.cookie .btn{--hd:#F4B6CF;color:#2A1A22;height:44px}
+.cookie .btn.line{color:#FFF8F0;border-color:rgba(255,255,255,.35)}
+@media (max-width:760px){.cookie{left:12px;right:12px;bottom:84px;max-width:none}}
+/* find */
+.find{padding:130px 40px;background:#F3EEF8}
+.find .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:28px;margin-top:46px}
+.loccard{border-radius:28px;background:#fff;padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 50px rgba(42,26,34,.06)}
+.loccard h3{margin:0;font-size:28px;font-weight:800}
+.lrow{display:flex;gap:12px;font-size:15px}
+.map{position:relative;border-radius:28px;overflow:hidden;background:#EDE6F2;min-height:480px}
+.map svg.m{position:absolute;inset:0;width:100%;height:100%}
+.cartpin{position:absolute;left:52%;top:36%;width:210px;transform:translate(-50%,-78%);opacity:0;z-index:2}
+.cartpin img{width:100%;filter:drop-shadow(0 18px 18px rgba(42,26,34,.3))}
+.cartpin .tag{position:absolute;left:50%;top:-46px;transform:translateX(-50%);white-space:nowrap;padding:8px 14px;border-radius:14px;background:#2A1A22;color:#FFF8F0;font-size:12px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.cartpin .tag b{display:block;font-size:14px;color:#F4B6CF}
+.cartpin .tag::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;margin-left:-6px;background:#2A1A22;transform:rotate(45deg)}
+.pulse{position:absolute;left:52%;top:36%;width:160px;height:40px;margin:-20px 0 0 -80px;border-radius:50%;border:2px solid #8A2F5A;opacity:0}
+.map.in .pulse{opacity:1;animation:ping 2.4s ease-out infinite}
+@keyframes ping{from{transform:scale(.5);opacity:1}to{transform:scale(1.6);opacity:0}}
+.map.in .cartpin{animation:pindrop .9s var(--spring) .2s both}
+@media (max-width:760px){.cartpin{width:150px}}
+@keyframes pindrop{0%{opacity:0;transform:translate(-50%,-78%) translateY(-240px)}60%{opacity:1;transform:translate(-50%,-78%) scale(1.06,.94)}100%{opacity:1;transform:translate(-50%,-78%)}}
+.find .btn{--hd:#2A1A22}
+
+/* order */
+.order{position:relative;padding:120px 40px;background:#F4B6CF;overflow:hidden}
+.order .g{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.order h2{margin:0;font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(56px,7vw,112px);line-height:.98;letter-spacing:-.03em}
+.order .cone3{height:560px;display:flex;justify-content:center}
+.order .cone3 img{height:100%;object-fit:contain;animation:bob 5s ease-in-out infinite;filter:drop-shadow(0 40px 40px rgba(42,26,34,.25))}
+.order .btn{--hd:#2A1A22}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* footer */
+.foot{background:#2A1A22;color:#FFF8F0;padding:90px 40px 0}
+.foot a{color:#FFF8F0}
+.fgrid2{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
+.foot h4{margin:0 0 14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F4B6CF}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.socials{display:flex;gap:10px;margin-top:22px}
+.socials a{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+.socials a:hover{animation:wob .6s var(--spring);background:#F4B6CF;color:#2A1A22}
+@keyframes wob{25%{transform:rotate(-14deg) scale(1.1)}50%{transform:rotate(10deg)}75%{transform:rotate(-5deg)}}
+.brandbig{margin-top:60px;text-align:center;font-family:'Permanent Marker',cursive;font-size:clamp(100px,20vw,300px);line-height:.95;white-space:nowrap}
+.brandbig .m{display:inline-block;overflow:hidden;vertical-align:bottom}
+.brandbig .ch{display:inline-block;transform:translateY(110%)}
+.brandbig.in .ch{animation:rise .8s var(--spring) both;animation-delay:calc(var(--i) * 60ms)}
+.legal{display:flex;justify-content:space-between;gap:16px;padding:22px 0 28px;font-size:13px;opacity:.9;border-top:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
+.mbar{display:none}
+
+@media (max-width:1000px){
+.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.feat .g,.build .g,.party .g,.find .g,.order .g{grid-template-columns:minmax(0,1fr)}
+.fgrid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.thumbs .th:nth-child(n+5){display:none}
+}
+@media (max-width:760px){
+.stage{padding:12px}
+.card{height:auto;min-height:0;padding-bottom:24px}
+.hnav{padding:18px 20px}.hnav .links{display:none}
+.hcopy{position:relative;left:auto;top:auto;width:auto;padding:0 20px}
+.hcopy h1{font-size:38px}
+.cones{position:relative;right:auto;top:auto;width:100%;height:380px;margin-top:10px}
+.circ1{width:120%;right:-40%;top:auto;bottom:18%}
+.circ2{width:70%;right:auto;left:-20%;bottom:-6%}
+.taste{top:auto;bottom:52%;right:6%;font-size:34px}
+.thumbs{position:relative;left:auto;bottom:auto;padding:0 20px;overflow-x:auto;scrollbar-width:none}
+.thumbs .th:nth-child(n+5){display:flex}
+.th{flex:0 0 96px}
+.dots{position:relative;right:auto;bottom:auto;justify-content:center;margin-top:10px}
+.flv,.feat,.build,.party,.find,.order{padding:80px 16px}
+.flv .top{flex-direction:column;align-items:flex-start}
+.fgrid{grid-template-columns:minmax(0,1fr)}
+.bstage{height:480px}
+.pkgs,.fg2{grid-template-columns:minmax(0,1fr)}
+.form{padding:20px}
+.order .cone3{height:380px}
+.foot{padding:70px 16px 90px}
+.fgrid2{grid-template-columns:minmax(0,1fr)}
+.mbar{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:8200}
+.mbar .btn{width:100%;height:56px;--hd:#2A1A22;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.3s!important}
+[data-reveal],[data-stagger]>*{transform:none!important}
+.bob,.fc{transform:none!important}
+.cur{display:none}
+}
+
+@media (max-width:760px){
+html,body{-webkit-text-size-adjust:100%}
+.hnav{flex-wrap:wrap;row-gap:10px}
+.hnav .links{display:flex;order:3;width:100%;overflow-x:auto;scrollbar-width:none;gap:6px;padding-bottom:2px}
+.hnav .links::-webkit-scrollbar{display:none}
+.hnav .links a{flex:0 0 auto;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.6);font-size:13px}
+.hnav .blob{display:none}
+.hcopy h1{font-size:34px}
+.hcopy p{margin:12px 0 18px;font-size:14px}
+.hcopy .ctas{align-items:center}
+.cones{height:340px}
+.taste{font-size:26px;bottom:auto;top:44%;right:4%}
+.th{flex:0 0 88px;width:88px}
+.th img{width:52px;height:64px}
+.dots .arrows{display:none}
+.h2{font-size:34px}
+.lead{font-size:15px}
+.fc .img{height:200px}
+.feat .ph{aspect-ratio:1/1}
+.bstage{height:460px;border-radius:24px}
+.price{font-size:36px}.dg,.dg .col span{height:38px}
+.bfoot{flex-direction:column;align-items:flex-start}
+.bfoot > div:last-child{width:100%}
+.bfoot .btn{flex:1}
+.pill{font-size:13px;padding:0 12px}
+.loccard{padding:22px}
+.lrow{flex-direction:column;gap:2px}
+.map{min-height:360px}
+.order h2{font-size:48px}
+.order .cone3{height:320px}
+.toast{max-width:calc(100% - 32px);font-size:13px}
+.brandbig{font-size:26vw}
+.legal{font-size:12px}
+.foot{padding-bottom:110px}
+}
+@media (max-width:380px){.hcopy h1{font-size:30px}.cones{height:300px}.th{flex-basis:80px;width:80px}}
+
+
+/* scoop buttons */
+.btn{overflow:hidden!important;isolation:isolate;transition:transform .3s cubic-bezier(.34,1.56,.64,1),color .35s,translate .25s ease-out!important}
+.btn::before{display:block!important;content:""!important;position:absolute!important;left:var(--x,50%)!important;top:var(--y,50%)!important;width:0!important;height:0!important;border-radius:50%!important;background:var(--fill)!important;transform:translate(-50%,-50%)!important;transition:width .55s cubic-bezier(.65,0,.35,1),height .55s cubic-bezier(.65,0,.35,1)!important;animation:none!important;z-index:-1!important}
+.btn:hover::before{width:260%!important;height:600%!important}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);background-size:250% 100%;background-position:130% 0;pointer-events:none;z-index:1}
+.btn:hover::after{animation:sheen .9s ease .15s}
+@keyframes sheen{to{background-position:-30% 0}}
+.btn:active{transform:scale(.94,.9)!important}
+.btn .ic{display:inline-block;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+@media (prefers-reduced-motion:reduce){.btn::before{transition:none!important}.btn:hover::after{animation:none}}
+
+.btn{--fill:#fff;--dc:var(--hd)}
+.btn.line{--fill:var(--hd);--dc:transparent}
+.feat.dark .btn{--fill:#fff;--dc:#F4B6CF}
+.cookie .btn{--fill:#fff;--dc:#F4B6CF}
+.cookie .btn.line{--fill:#FFF8F0;--dc:transparent}
+
+/* brand + premium */
+.logo{flex-direction:row!important;align-items:center!important;gap:10px}
+.logo .badge{width:46px;height:46px;border-radius:50%;box-shadow:0 6px 16px rgba(42,26,34,.2);transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.logo:hover .badge{transform:rotate(-14deg) scale(1.06)}
+.logo .lw{display:flex;flex-direction:column}
+.hnav{gap:14px}
+.open{display:inline-flex;align-items:center;gap:8px;margin-right:auto;margin-left:14px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.7);font-size:12px;font-weight:600}
+.open i{width:8px;height:8px;border-radius:50%;background:#9A8F96}
+.open.on i{background:#2EB872;box-shadow:0 0 0 0 rgba(46,184,114,.6);animation:opulse 1.8s infinite}
+@keyframes opulse{to{box-shadow:0 0 0 10px rgba(46,184,114,0)}}
+.hcopy h1,.h2,.order h2{letter-spacing:-.025em}
+.menu{padding:120px 40px;background:#2A1A22;color:#FFF8F0}
+.menu .eyebrow{color:#F4B6CF}
+.mtop{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:56px}
+.mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:60px}
+.mcol h3{margin:0 0 20px;font-family:Fraunces,serif;font-weight:400;font-size:28px;color:#F4B6CF}
+.mcol ul{list-style:none;margin:0;padding:0}
+.mcol li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,248,240,.12);font-size:18px}
+.mcol li i{flex:1;border-bottom:1px dotted rgba(255,248,240,.3);transform:translateY(-4px)}
+.mcol li b{font-family:Fraunces,serif;font-weight:500;font-size:22px}
+.intro{position:fixed;inset:0;z-index:9900;background:#2A1A22;display:flex;align-items:center;justify-content:center;transition:clip-path 1s cubic-bezier(.76,0,.24,1);clip-path:circle(150% at 50% 50%)}
+.intro.done{clip-path:circle(0% at 50% 50%);pointer-events:none}
+.intro .ib{display:flex;flex-direction:column;align-items:center;gap:18px}
+.ibadge{width:130px;height:130px;animation:ibin 1s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes ibin{from{transform:rotate(-200deg) scale(0)}to{transform:none}}
+.icup{position:relative;width:150px;height:110px;margin-top:10px}
+.icup svg{position:absolute;left:0;bottom:0;width:150px}
+.iscoop{position:absolute;left:18px;bottom:44px;width:114px;animation:idrop .8s cubic-bezier(.34,1.56,.64,1) .8s both}
+@keyframes idrop{0%{transform:translateY(-70vh)}60%{transform:translateY(0) scale(1.1,.85)}100%{transform:none}}
+.intro p{margin:0;font-family:Fraunces,serif;font-style:italic;font-size:20px;color:#F4B6CF;animation:fade .6s 1.3s both}
+.card{animation-delay:2.1s!important}
+.wa{position:fixed;right:24px;bottom:24px;z-index:8300;display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 16px;border-radius:999px;background:#25D366;color:#fff;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 14px 30px rgba(37,211,102,.35);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.wa:hover{transform:translateY(-3px);color:#fff}
+@media (max-width:1000px){.mgrid{grid-template-columns:minmax(0,1fr);gap:40px}}
+@media (max-width:760px){.open{margin-left:0;font-size:11px}.logo .badge{width:40px;height:40px}.menu{padding:80px 16px}.mtop{flex-direction:column;align-items:flex-start}.mcol li{font-size:16px}.wa{right:16px;bottom:84px;width:56px;padding:0;justify-content:center}.wa span{display:none}}
+@media (prefers-reduced-motion:reduce){.intro{display:none}.card{animation-delay:0s!important}}
+</style>
+</helmet>
+<div class="site" id="top" style="--pg: {{t.pg}}; --c1: {{t.c1}}; --c2: {{t.c2}}; --hd: {{t.hd}}">
+
+<div class="cur" aria-hidden="true"><span>TASTE</span></div>
+<div class="burst" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="flyer" aria-hidden="true"><img src="{{t.cone}}" alt=""></div>
+<div class="toast {{toastCls}}" role="status" aria-live="polite"><b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A1A22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></b>{{toastMsg}}</div>
+
+<!-- HERO: flavour slider -->
+<div class="stage">
+<header class="card {{swCls}}" onMouseEnter="{{pause}}" onMouseLeave="{{resume}}">
+<div class="circ1" aria-hidden="true"></div>
+<div class="circ2" aria-hidden="true"></div>
+<div class="taste" aria-hidden="true">Choose your taste</div>
+
+<nav class="hnav" aria-label="Main">
+<a class="logo" href="#top" aria-label="Cosmic Ice Cream, home"><img class="badge" src="assets/badge-front.png" alt=""><span class="lw"><b>Cosmic</b><small>ICE CREAM</small></span></a><span class="open {{openCls}}"><i></i>{{openTxt}}</span>
+<div class="links"><span class="blob" aria-hidden="true"></span>
+<a href="#flavours" onClick="{{go}}">Flavours</a>
+<a href="#menu" onClick="{{go}}">Menu</a>
+<a href="Kothi.dc.html">How We Make It</a>
+<a href="#build" onClick="{{go}}">Build</a>
+<a href="#sundays" onClick="{{go}}">Sundays</a>
+<a href="#parties" onClick="{{go}}">Parties</a>
+<a href="#find" onClick="{{go}}">Find Us</a>
+</div>
+<button class="cartbtn" type="button" aria-label="Cart, {{cart}} items">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+<sc-if value="{{hasCart}}" hint-placeholder-val="{{ false }}"><span class="bubble" key="{{cart}}">{{cart}}</span></sc-if>
+</button>
+</nav>
+
+<div class="hcopy" key="{{t.key}}">
+<h1><span class="ln"><span>{{t.name}}</span></span><span class="ln"><span>Ice Cream</span></span></h1>
+<p>{{t.desc}}</p>
+<div class="ctas">
+<a class="btn" href="#enquiry" onClick="{{toEnquiry}}">Order Now</a>
+<a class="menulink" href="#flavours" onClick="{{go}}">View menu</a>
+</div>
+</div>
+
+<div class="cones" data-taste="1">
+<sc-for list="{{slides}}" as="s" hint-placeholder-count="6">
+<div class="cone {{s.cls}}"><div class="bob"><img src="{{s.cone}}" alt="{{s.name}} cone"></div></div>
+</sc-for>
+</div>
+
+<div class="thumbs" role="tablist" aria-label="Flavours">
+<sc-for list="{{slides}}" as="s" hint-placeholder-count="6">
+<button type="button" role="tab" aria-selected="{{s.sel}}" class="th {{s.thCls}}" style="--tb: {{s.tb}}" onClick="{{s.pick}}"><img src="{{s.cone}}" alt=""><b>{{s.name}}</b><span>from ₹39</span></button>
+</sc-for>
+</div>
+
+<div class="dots">
+<sc-for list="{{slides}}" as="s" hint-placeholder-count="6"><button type="button" class="{{s.thCls}}" aria-label="Show {{s.name}}" onClick="{{s.pick}}"><i></i></button></sc-for>
+<div class="arrows"><button type="button" aria-label="Previous flavour" onClick="{{prev}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 6l-6 6 6 6"></path></svg></button><button type="button" aria-label="Next flavour" onClick="{{next}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+</div>
+</header>
+</div>
+
+<!-- FLAVOURS -->
+<section class="flv" id="flavours" aria-labelledby="h-flv">
+<div class="wrap">
+<div class="top" data-reveal="1"><div><div class="eyebrow">The line-up</div><h2 class="h2" id="h-flv">Pick your planet.</h2></div><p class="lead" style="max-width: 340px">Familiar flavours. Slightly different universe. Fresh kothi batches, made daily.</p></div>
+<div class="fgrid" data-stagger="1">
+<sc-for list="{{slides}}" as="f" hint-placeholder-count="6">
+<article class="fc" style="--b: {{f.tb}}" onMouseMove="{{f.tilt}}" onMouseLeave="{{f.untilt}}">
+<div class="img" data-taste="1"><img src="{{f.scoop}}" alt="{{f.name}} scoop" loading="lazy"></div>
+<h3>{{f.name}}</h3>
+<p>{{f.ing}}</p>
+<div class="row"><span class="pr">from ₹39</span><button type="button" class="btn sm" style="--hd: #2A1A22" onClick="{{f.add}}">Add +</button></div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu" aria-labelledby="h-menu"><div class="wrap">
+<div class="mtop" data-reveal="1"><div><div class="eyebrow">The menu</div><h2 class="h2" id="h-menu">Straight from the cart.</h2></div><p class="lead" style="max-width: 320px">Same prices you'll see on the boards at Marine Drive.</p></div>
+<div class="mgrid" data-stagger="1">
+<div class="mcol"><h3>Scoops &amp; cups</h3><ul><li><span>Waffle cone</span><i></i><b>₹29</b></li><li><span>Tub</span><i></i><b>₹39</b></li><li><span>Premium</span><i></i><b>₹69</b></li><li><span>Sundae</span><i></i><b>₹99</b></li></ul></div>
+<div class="mcol"><h3>Cosmic specials</h3><ul><li><span>Classic</span><i></i><b>₹39</b></li><li><span>Special</span><i></i><b>₹69</b></li><li><span>Family</span><i></i><b>₹99</b></li><li><span>Signature</span><i></i><b>₹129</b></li></ul></div>
+</div>
+</div></section>
+
+<!-- SUNDAYS -->
+<section class="feat dark" id="sundays" aria-labelledby="h-sun">
+<div class="wrap g">
+<div data-stagger="1">
+<div class="eyebrow">Cosmic Sundays</div>
+<h2 class="h2" id="h-sun">Sundays get weird.</h2>
+<p class="lead" style="margin-top: 16px">One experimental sundae. One Sunday. Then maybe it's gone.</p>
+<div class="drop"><h3>Brownie Supernova</h3><p>Warm brownie, dark chocolate kothi ice cream, caramel and chocolate crumble.</p></div>
+<button type="button" class="btn" onClick="{{addSunday}}">See this Sunday's drop</button>
+</div>
+<div class="ph" data-reveal="1" data-taste="1" data-fp="1"><img src="assets/sundae.webp" alt="Brownie Supernova sundae with chocolate and caramel sauce" loading="lazy"></div>
+</div>
+</section>
+
+<!-- HOT MEETS COLD -->
+<section class="feat warm" aria-labelledby="h-hot">
+<div class="wrap g">
+<div class="ph" data-reveal="1" data-taste="1" data-fp="1"><img src="assets/brownie.webp" alt="Vanilla scoop melting on a warm brownie" loading="lazy">
+<div class="steam" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M30 100 C20 80 40 70 30 50 C22 34 38 24 32 6"></path><path d="M52 100 C42 82 62 72 52 52 C44 36 60 26 54 8"></path><path d="M74 100 C64 80 84 70 74 50 C66 34 82 24 76 6"></path></svg></div>
+</div>
+<div data-stagger="1">
+<div class="eyebrow">Brownies</div>
+<h2 class="h2" id="h-hot">Hot meets cold.</h2>
+<p class="lead" style="margin: 16px 0 28px">Warm brownies. Fresh kothi ice cream. No complicated explanation required.</p>
+<a class="btn" style="--hd: #5A2E22" href="#flavours" onClick="{{go}}">Explore Brownies</a>
+</div>
+</div>
+</section>
+
+<!-- BUILD -->
+<section class="build" id="build" aria-labelledby="h-build">
+<div class="wrap g">
+<div class="bstage" data-reveal="1" data-taste="1">
+<div class="shadow"></div>
+<div class="base" key="{{baseKey}}">
+<sc-if value="{{isCone}}" hint-placeholder-val="{{ true }}"><svg width="150" height="230" viewBox="0 0 150 230" aria-label="Waffle cone" role="img"><defs><pattern id="wf" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0H16M0 0V16" stroke="#A8632A" stroke-width="3" opacity=".5"></path></pattern></defs><path d="M8 14 L142 14 L80 224 Q75 232 70 224 Z" fill="#E3A55C"></path><path d="M8 14 L142 14 L80 224 Q75 232 70 224 Z" fill="url(#wf)"></path><rect x="2" y="4" width="146" height="24" rx="12" fill="#D9974D"></rect></svg></sc-if>
+<sc-if value="{{isCup}}" hint-placeholder-val="{{ false }}"><svg width="240" height="120" viewBox="0 0 240 120" aria-label="Terracotta clay cup" role="img"><defs><linearGradient id="tc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E08A4E"></stop><stop offset=".55" stop-color="#C8662F"></stop><stop offset="1" stop-color="#9A4A20"></stop></linearGradient></defs><path d="M6 18 C20 96 70 112 120 112 C170 112 220 96 234 18 Z" fill="url(#tc)"></path><ellipse cx="120" cy="18" rx="114" ry="14" fill="#B85A28"></ellipse><ellipse cx="120" cy="18" rx="104" ry="10" fill="#8E4219"></ellipse><path d="M92 112 H148 L144 118 H96 Z" fill="#9A4A20"></path><path d="M30 40 C40 70 60 86 84 94" stroke="#F2A874" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"></path></svg></sc-if>
+</div>
+<sc-for list="{{stack}}" as="s" hint-placeholder-count="0"><div class="sc" style="{{s.style}}" key="{{s.key}}"><svg viewBox="0 0 200 160" role="img" aria-label="{{s.name}} scoop"><defs><radialGradient id="sg{{s.key}}" cx="36%" cy="28%" r="80%"><stop offset="0" stop-color="{{s.c1}}"></stop><stop offset=".55" stop-color="{{s.c2}}"></stop><stop offset="1" stop-color="{{s.c3}}"></stop></radialGradient></defs><path d="M18 112 C6 62 46 10 100 10 C154 10 194 62 182 112 C190 124 176 136 164 128 C158 142 140 144 132 132 C122 146 104 148 96 134 C86 146 66 146 60 132 C50 142 32 140 32 126 C18 130 10 118 18 112 Z" fill="url(#sg{{s.key}})"></path><path d="M30 60 C50 44 70 40 92 42 M40 86 C70 70 110 68 150 76 M60 108 C90 100 130 100 164 106" stroke="{{s.c3}}" stroke-width="3" fill="none" stroke-linecap="round" opacity=".35"></path><g fill="{{s.bit}}"><rect x="58" y="58" width="12" height="10" rx="3" transform="rotate(20 64 63)"></rect><rect x="120" y="44" width="10" height="9" rx="3" transform="rotate(-15 125 48)"></rect><rect x="146" y="86" width="12" height="10" rx="3" transform="rotate(35 152 91)"></rect><rect x="92" y="92" width="11" height="9" rx="3" transform="rotate(-25 97 96)"></rect><rect x="40" y="96" width="9" height="8" rx="2"></rect><circle cx="100" cy="64" r="4"></circle><circle cx="132" cy="112" r="4"></circle></g><ellipse cx="68" cy="36" rx="26" ry="11" fill="#fff" opacity=".45" transform="rotate(-18 68 36)"></ellipse><path d="M26 118 C60 134 140 136 176 116" stroke="#000" stroke-opacity=".12" stroke-width="6" fill="none" stroke-linecap="round"></path></svg></div></sc-for>
+<sc-for list="{{sauces}}" as="sa" hint-placeholder-count="0"><svg class="sauce" viewBox="0 0 180 90" style="{{sa.style}}" key="{{sa.key}}" aria-hidden="true"><path d="M20 12 C50 0 130 0 160 12 C166 22 158 30 152 24 C150 46 142 52 138 30 C130 38 124 36 120 28 C116 62 104 66 100 32 C92 40 84 38 80 30 C76 50 66 54 64 32 C56 38 48 36 44 28 C40 42 30 44 30 26 C22 30 14 22 20 12 Z" fill="{{sa.c}}"></path></svg></sc-for>
+<sc-if value="{{hasTops}}" hint-placeholder-val="{{ false }}"><div class="tops" style="{{topsStyle}}"><sc-for list="{{pieces}}" as="p" hint-placeholder-count="0"><i class="tp {{p.cls}}" style="{{p.style}}" key="{{p.key}}"></i></sc-for></div></sc-if>
+</div>
+<div data-reveal="1">
+<div class="eyebrow">Build your scoop</div>
+<h2 class="h2" id="h-build">Build something questionable.</h2>
+<p class="lead" style="margin-top: 12px">Your scoop. Your toppings. Your consequences.</p>
+<div class="bpanel">
+<div class="bgroup"><span class="lab">01 · Base</span><div class="pills"><sc-for list="{{bases}}" as="b" hint-placeholder-count="2"><button type="button" class="pill {{b.cls}}" aria-pressed="{{b.on}}" onClick="{{b.pick}}">{{b.name}}</button></sc-for></div></div>
+<div class="bgroup"><span class="lab">02 · Scoops (max 3)</span><div class="pills"><sc-for list="{{scoopPills}}" as="f" hint-placeholder-count="6"><button type="button" class="pill" onClick="{{f.add}}"><img src="{{f.img}}" alt="">{{f.name}}</button></sc-for></div></div>
+<div class="bgroup"><span class="lab">03 · Toppings</span><div class="pills"><sc-for list="{{toppings}}" as="t" hint-placeholder-count="7"><button type="button" class="pill {{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.toggle}}">{{t.name}}</button></sc-for></div></div>
+<div class="bfoot">
+<div><div class="price" aria-label="Price {{price}} rupees">₹<sc-for list="{{digits}}" as="dg" hint-placeholder-count="3"><span class="dg"><span class="col" style="{{dg.style}}"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span></sc-for></div><p class="hint">{{buildHint}} · sample prices</p></div>
+<div style="display: flex; gap: 8px"><button type="button" class="btn line sm" onClick="{{resetBuild}}">Reset</button><button type="button" class="btn sm" onClick="{{addBuild}}">Add to cart</button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PARTIES -->
+<section class="party" id="parties" aria-labelledby="h-party">
+<div class="wrap g">
+<div data-stagger="1">
+<div class="eyebrow">Cosmic parties</div>
+<h2 class="h2" id="h-party">Take Cosmic to your party.</h2>
+<p class="lead" style="margin-top: 14px">Fresh kothi ice cream made where the party is.</p>
+<div class="chips"><span>Birthday</span><span>Wedding</span><span>College</span><span>Office</span><span>Private party</span><span>Brand event</span></div>
+<div class="station"><h3>Live kothi ice-cream station</h3><p>The Cosmic cart arrives at your venue. Ice cream is made and served live, in front of your guests.</p></div>
+<div class="pkgs"><sc-for list="{{pkgs}}" as="k" hint-placeholder-count="3"><button type="button" class="pkg {{k.cls}}" aria-pressed="{{k.on}}" onClick="{{k.pick}}"><b>{{k.name}}</b><span>{{k.desc}}</span><em>Starting from ₹—</em></button></sc-for></div>
+</div>
+<form class="form" id="enquiry" data-reveal="1" novalidate="novalidate" onSubmit="{{enquire}}">
+<h3>Book Cosmic</h3>
+<div class="fg2">
+<div class="field"><input id="bn" name="name" type="text" placeholder=" " required="required" minlength="2" maxlength="60" autocomplete="name" aria-invalid="{{err.nameInv}}" aria-describedby="e-bn"><label for="bn">Name</label><sc-if value="{{err.name}}" hint-placeholder-val="{{ false }}"><span class="err" id="e-bn">Please enter your name.</span></sc-if></div>
+<div class="field"><input id="bp" name="phone" type="tel" inputmode="numeric" placeholder=" " required="required" maxlength="13" autocomplete="tel" aria-invalid="{{err.phoneInv}}" aria-describedby="e-bp"><label for="bp">Phone number</label><sc-if value="{{err.phone}}" hint-placeholder-val="{{ false }}"><span class="err" id="e-bp">Enter a valid 10-digit Indian mobile number.</span></sc-if></div>
+<div class="field sel"><select id="bt"><option>Birthday</option><option>Wedding</option><option>College</option><option>Office</option><option>Private party</option><option>Brand event</option></select><label for="bt">Event type</label></div>
+<div class="field sel"><input id="bd" name="date" type="date" min="{{today}}" aria-invalid="{{err.dateInv}}" aria-describedby="e-bd"><label for="bd">Event date</label><sc-if value="{{err.date}}" hint-placeholder-val="{{ false }}"><span class="err" id="e-bd">Pick a date from today onwards.</span></sc-if></div>
+<div class="field"><input id="bl" type="text" placeholder=" "><label for="bl">Location</label></div>
+<div class="field"><input id="bg" name="guests" type="number" min="10" max="5000" placeholder=" "><label for="bg">Approximate guests</label></div>
+<div class="field sel full"><select id="bk" value="{{pkgName}}" onChange="{{pkgSelect}}"><option>Orbit</option><option>Galaxy</option><option>Supernova</option><option>Not sure yet</option></select><label for="bk">Package</label></div>
+<div class="field full"><textarea id="bm" name="message" maxlength="500" placeholder=" "></textarea><label for="bm">Message</label></div>
+<div class="hp" aria-hidden="true"><label for="bw">Leave this empty</label><input id="bw" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+</div>
+<div class="ctas" style="margin-top: 16px; align-items: center"><button type="submit" class="btn">{{enqLabel}}</button><a href="https://wa.me/917372000150" target="_blank" rel="noopener" style="font-weight: 600">Continue on WhatsApp</a></div>
+</form>
+</div>
+</section>
+
+<!-- FIND -->
+<section class="find" id="find" aria-labelledby="h-find">
+<div class="wrap">
+<div data-reveal="1"><div class="eyebrow">Find Cosmic</div><h2 class="h2" id="h-find">Find your nearest scoop.</h2></div>
+<div class="g">
+<div class="loccard" data-reveal="1">
+<h3>Cosmic · Patna</h3>
+<div class="lrow"><b>Address</b><span>Marine Drive, Patna, Bihar</span></div>
+<div class="lrow"><b>Hours</b><span>Every day, 4 PM to 10 PM</span></div>
+<div class="lrow"><b>Phone</b><span><a href="tel:+917372000150">+91 73720 00150</a></span></div>
+<div class="lrow"><b>Delivery</b><span>Coming soon</span></div>
+<div class="ctas" style="margin-top: 8px"><a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=Cosmic+Ice+Cream+Marine+Drive+Patna" target="_blank" rel="noopener">Get directions</a><a class="btn line sm" href="tel:+917372000150">Call us</a><a class="btn line sm" href="#top" onClick="{{go}}">Order</a></div>
+</div>
+<div class="map" data-pins="1" role="img" aria-label="Map of Marine Drive, Patna, along the River Ganga, with the Cosmic cart parked on the road">
+<svg class="m" viewBox="0 0 700 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<rect width="700" height="520" fill="#EFE8F3"></rect>
+<path d="M-20 0 H720 V150 C560 190 420 120 260 160 C140 190 60 170 -20 190 Z" fill="#CFE3F0"></path>
+<g stroke="#fff" stroke-width="2" opacity=".6" fill="none"><path d="M60 80 q20 -8 40 0 q20 8 40 0"></path><path d="M420 60 q20 -8 40 0 q20 8 40 0"></path><path d="M250 110 q20 -8 40 0"></path></g>
+<text x="40" y="58" font-family="Poppins" font-size="14" font-style="italic" font-weight="600" fill="#6E93AD" letter-spacing="3">RIVER GANGA</text>
+<path d="M-20 220 C80 200 160 224 270 196 C420 158 560 226 720 186" stroke="#fff" stroke-width="44" fill="none" stroke-linecap="round"></path>
+<path d="M-20 220 C80 200 160 224 270 196 C420 158 560 226 720 186" stroke="#F2D98A" stroke-width="2.5" stroke-dasharray="14 12" fill="none"></path>
+<text font-family="Poppins" font-size="13" font-weight="700" fill="#8A7A90" letter-spacing="4"><textPath href="#mdpath" startOffset="8%">MARINE DRIVE</textPath></text>
+<path id="mdpath" d="M-20 250 C80 230 160 254 270 226 C420 188 560 256 720 216" fill="none"></path>
+<g stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round"><path d="M180 212 C170 320 200 420 160 540"></path><path d="M560 200 C580 320 540 420 600 540"></path></g>
+<g fill="#DCEBD2"><ellipse cx="360" cy="380" rx="120" ry="60"></ellipse><circle cx="620" cy="330" r="40"></circle><circle cx="70" cy="380" r="46"></circle></g>
+<g fill="#E3D6EA"><rect x="240" y="280" width="70" height="40" rx="10"></rect><rect x="440" y="270" width="80" height="44" rx="10"></rect><rect x="60" y="460" width="70" height="40" rx="10"></rect><rect x="470" y="450" width="80" height="40" rx="10"></rect></g>
+</svg>
+<span class="pulse" aria-hidden="true"></span>
+<div class="cartpin"><img src="assets/cart.webp" alt="The Cosmic Ice Cream cart"><span class="tag"><b>Cosmic cart</b>Marine Drive · 4 to 10 PM</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ORDER -->
+<section class="order" id="order" aria-labelledby="h-order">
+<div class="wrap g">
+<div data-stagger="1">
+<h2 id="h-order">Okay.<br>Now you're hungry.</h2>
+<div class="ctas" style="margin-top: 30px"><a class="btn" href="#enquiry" onClick="{{toEnquiry}}">Order Now</a><a class="btn line" href="#find" onClick="{{go}}">Find a store</a><a class="btn line" href="#parties" onClick="{{go}}">Book Cosmic</a></div>
+</div>
+<div class="cone3" data-taste="1"><img src="assets/c-triple.webp" alt="Three scoop Cosmic cone: vanilla, pistachio and chocolate brownie" loading="lazy"></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap">
+<div class="fgrid2">
+<div><img src="assets/badge-front.png" alt="Cosmic Ice Cream logo" style="width: 96px; height: 96px; margin-bottom: 14px"><div style="font-family: 'Permanent Marker', cursive; font-size: 46px; line-height: 1">Cosmic</div><div style="font-size: 10px; letter-spacing: .4em; font-weight: 700; margin-top: 4px">ICE CREAM</div><p style="font-family: Pacifico, cursive; font-size: 20px; margin: 18px 0 0; color: #F4B6CF">Made the old-school way.</p>
+<div class="socials"><a href="https://www.instagram.com/cosmicicecream.in" target="_blank" rel="noopener" aria-label="Instagram @cosmicicecream.in"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a><a href="https://wa.me/917372000150" target="_blank" rel="noopener" aria-label="WhatsApp +91 73720 00150"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20l1.4-4A8 8 0 1 1 8 18.6z"></path></svg></a></div></div>
+<div><h4>Eat</h4><ul><li><a href="#flavours" onClick="{{go}}">Flavours</a></li><li><a href="#sundays" onClick="{{go}}">Cosmic Sundays</a></li><li><a href="#build" onClick="{{go}}">Build a scoop</a></li></ul></div>
+<div><h4>Cosmic</h4><ul><li><a href="#parties" onClick="{{go}}">Parties</a></li><li><a href="#find" onClick="{{go}}">Locations</a></li><li><a href="#find" onClick="{{go}}">Contact</a></li></ul></div>
+<div><h4>Legal</h4><ul><li><a href="Privacy.dc.html">Privacy policy</a></li><li><a href="Terms.dc.html">Terms &amp; conditions</a></li><li><a href="Terms.dc.html#refunds">Refund / Cancellation</a></li><li><a href="Terms.dc.html#delivery">Delivery policy</a></li></ul></div>
+</div>
+<div class="brandbig" data-split="1" aria-hidden="true"><span class="m"><span class="ch" style="--i:0">C</span></span><span class="m"><span class="ch" style="--i:1">o</span></span><span class="m"><span class="ch" style="--i:2">s</span></span><span class="m"><span class="ch" style="--i:3">m</span></span><span class="m"><span class="ch" style="--i:4">i</span></span><span class="m"><span class="ch" style="--i:5">c</span></span></div>
+<div class="legal"><span>© 2026 Cosmic Ice Cream · Marine Drive, Patna · <a href="tel:+917372000150">+91 73720 00150</a> · 4 PM to 10 PM · <a href="https://www.instagram.com/cosmicicecream.in" target="_blank" rel="noopener">@cosmicicecream.in</a></span><span>Made slowly. Gone quickly.</span></div>
+</div>
+</footer>
+
+<div class="cookie {{cookieCls}}" role="dialog" aria-live="polite" aria-label="Cookie consent">
+<p>We use a few cookies to see how people use this site and improve it. No selling of data. Read our <a href="Privacy.dc.html">privacy policy</a>.</p>
+<div class="row2"><button type="button" class="btn sm" onClick="{{cookieYes}}">Accept</button><button type="button" class="btn line sm" onClick="{{cookieNo}}">Only essential</button></div>
+</div>
+<div class="intro {{introCls}}" aria-hidden="true"><div class="ib"><img class="ibadge" src="assets/badge-front.png" alt=""><div class="icup"><img class="iscoop" src="assets/s-vanilla.webp" alt=""><svg viewBox="0 0 240 120"><path d="M6 18 C20 96 70 112 120 112 C170 112 220 96 234 18 Z" fill="#C8662F"></path><ellipse cx="120" cy="18" rx="114" ry="14" fill="#9A4A20"></ellipse></svg></div><p>Made the old-school way</p></div></div>
+<a class="wa" href="https://wa.me/917372000150?text=Hi%20Cosmic%2C%20I%20want%20to%20book%20the%20cart%20for%20my%20event" target="_blank" rel="noopener" aria-label="Chat with Cosmic on WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2z"></path></svg><span>Book on WhatsApp</span></a>
+<div class="mbar"><a class="btn" href="#enquiry" onClick="{{toEnquiry}}">Order Now</a></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7600}}'>
+var CB = 'assets/';
+var C_F = [
+  {name:'Moon Dust Brownie', cone:CB+'c-brownie.webp', scoop:CB+'s-brownie.webp', ing:'Chocolate kothi ice cream, brownie chunks, chocolate crumble.', desc:'Chocolate kothi ice cream loaded with brownie chunks and chocolate crumble. Made in small batches, gone fast.', pg:'#F1E2DA', c1:'#D8B4A2', c2:'#F2D7B0', hd:'#5A2E22', tb:'#F6E4DA', price:110},
+  {name:'Pistachio Orbit', cone:CB+'c-pista.webp', scoop:CB+'s-pista.webp', ing:'Pistachio ice cream, roasted pistachios.', desc:'Silky pistachio ice cream folded with roasted pistachios. Nutty, green and very hard to share.', pg:'#EDF2DE', c1:'#CDDDA4', c2:'#F4E4B4', hd:'#56632A', tb:'#EEF3DF', price:120},
+  {name:'Solar Mango', cone:CB+'c-mango.webp', scoop:CB+'s-mango.webp', ing:'Fresh mango ice cream, mango pieces.', desc:'Fresh mango ice cream with real mango pieces. Summer in a cone, any month of the year.', pg:'#FFF1D2', c1:'#FFCB6E', c2:'#FFE2A0', hd:'#A85A06', tb:'#FFF0CC', price:100},
+  {name:'Milky Way Vanilla', cone:CB+'c-vanilla.webp', scoop:CB+'s-vanilla.webp', ing:'Classic creamy vanilla, real vanilla bean.', desc:'Classic creamy vanilla, speckled with real vanilla bean. The one that goes with everything.', pg:'#F6EFE3', c1:'#E9DAC0', c2:'#E4D4F0', hd:'#6B4A28', tb:'#F7F0E4', price:90},
+  {name:'Cookie Comet', cone:CB+'c-cookie.webp', scoop:CB+'s-cookie.webp', ing:'Vanilla ice cream, cookies, chocolate crumble.', desc:'Vanilla ice cream packed with cookies and chocolate crumble. Crunchy, creamy, gone in minutes.', pg:'#EEE9EE', c1:'#CFC5CC', c2:'#E4DEF4', hd:'#2E2226', tb:'#F0ECF2', price:110},
+  {name:'Caramel Eclipse', cone:CB+'c-caramel.webp', scoop:CB+'s-caramel.webp', ing:'Caramel ice cream, salted caramel swirl, crunch.', desc:'Caramel ice cream with a salted caramel swirl and crunchy bits. Sweet, salty, dangerous.', pg:'#FBE7D8', c1:'#F2B786', c2:'#FFD8AE', hd:'#8E4412', tb:'#FCE8DA', price:120}
+];
+var C_COL = [['#C08A70','#7A4535','#4A2418','#2E140C'],['#F2F7D2','#C9DC8E','#8FA552','#6E8B2E'],['#FFF0B8','#FFC844','#E08E12','#F7A21E'],['#FFFEF6','#F7EACB','#DCC495','#3A2A1C'],['#FFFCF4','#EFE6D4','#CDBE9F','#1E1414'],['#F8D8AE','#DDA266','#A8672E','#7E3A10']];
+var C_TOPS = [
+  {id:'crumb', name:'Brownie crumble', price:30, kind:'bits', cls:'crumb'},
+  {id:'cookie', name:'Cookies', price:30, kind:'bits', cls:'cookie'},
+  {id:'chocs', name:'Chocolate sauce', price:20, kind:'sauce', c:'#3A2320'},
+  {id:'caramel', name:'Caramel', price:20, kind:'sauce', c:'#C8793A'},
+  {id:'pista', name:'Pistachio', price:40, kind:'bits', cls:'pista'},
+  {id:'sprk', name:'Sprinkles', price:15, kind:'bits', cls:'sprk'},
+  {id:'chip', name:'Chocolate chips', price:25, kind:'bits', cls:'chip'}
+];
+var C_BASES = [{id:'cone', name:'Cone', top:190, price:40},{id:'cup', name:'Clay cup', top:70, price:30}];
+var C_PKGS = [{name:'Orbit', desc:'Smaller gatherings'},{name:'Galaxy', desc:'Medium-sized celebrations'},{name:'Supernova', desc:'Large events and custom activations'}];
+var C_SPR = ['#F4B6CF','#B9A3F0','#F2B544','#FFFFFF','#9DB84A'];
+function cRand(s){ var x = Math.sin(s * 9301 + 49297) * 233280; return x - Math.floor(x); }
+
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.state = { intro:true, now:Date.now(), cookie:false, err:{}, t0:Date.now(), i:0, prev:-1, sw:false, cart:0, base:'cone', scoops:[], tops:[], pkg:1, uid:0, toast:'', toastOn:false, sent:false };
+  }
+  componentDidMount(){
+    var selfI = this; setTimeout(function(){ selfI.setState({intro:false}); }, (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ? 0 : 1900); this._clock = setInterval(function(){ selfI.setState({now: Date.now()}); }, 60000);
+    var mag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(!b) return; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); if(!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) && e.pointerType === 'mouse') b.style.translate = ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px ' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px'; };
+    var unmag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(b && !b.contains(e.relatedTarget)){ b.style.translate = '0 0'; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); } };
+    document.addEventListener('pointermove', mag, {passive:true}); document.addEventListener('pointerover', mag, {passive:true}); document.addEventListener('pointerout', unmag, {passive:true});
+    var self = this, d = document, w = window, root = d.documentElement;
+    var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._reduce = reduce;
+    var self0 = this; try { if(!window.localStorage.getItem('cosmic-consent')) setTimeout(function(){ self0.setState({cookie:true}); }, 1500); } catch(e){ setTimeout(function(){ self0.setState({cookie:true}); }, 1500); }
+    this._auto = setInterval(function(){ if(!self._paused) self.goTo(self.state.i + 1); }, 4200);
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.2});
+    this._io = io;
+    d.querySelectorAll('[data-reveal],[data-stagger],[data-split],[data-pins]').forEach(function(el){ io.observe(el); });
+    var links = d.querySelectorAll('.hnav .links a'), blob = d.querySelector('.hnav .blob');
+    links.forEach(function(a){ a.addEventListener('mouseenter', function(){ if(blob){ blob.style.left = a.offsetLeft + 'px'; blob.style.width = a.offsetWidth + 'px'; } }); });
+    var cur = d.querySelector('.cur'), fps = d.querySelectorAll('[data-fp]');
+    this._onMove = function(e){
+      if(cur) cur.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0)';
+      if(!reduce){ root.style.setProperty('--mx', ((e.clientX / w.innerWidth) * 2 - 1).toFixed(3)); root.style.setProperty('--my', ((e.clientY / w.innerHeight) * 2 - 1).toFixed(3)); }
+    };
+    this._onOver = function(e){ if(!cur || !e.target.closest) return; cur.classList.toggle('taste', !!e.target.closest('[data-taste]')); cur.classList.toggle('btnh', !!e.target.closest('button,a')); };
+    this._onDown = function(e){ if(e.pointerType === 'touch' && e.target.closest && e.target.closest('.btn,.pill,.th')) self.burst(e.clientX, e.clientY, 8); };
+    this._onScroll = function(){ if(reduce) return; var vh = w.innerHeight; fps.forEach(function(el){ var r = el.getBoundingClientRect(); var p = Math.max(0, Math.min(1, (vh - r.top) / (r.height + vh))); el.style.setProperty('--fp', p.toFixed(3)); }); };
+    w.addEventListener('mousemove', this._onMove, {passive:true});
+    w.addEventListener('mouseover', this._onOver, {passive:true});
+    w.addEventListener('pointerdown', this._onDown, {passive:true});
+    w.addEventListener('scroll', this._onScroll, {passive:true});
+  }
+  componentWillUnmount(){
+    var w = window; clearInterval(this._auto); clearTimeout(this._swt); if(this._io) this._io.disconnect();
+    w.removeEventListener('mousemove', this._onMove); w.removeEventListener('mouseover', this._onOver); w.removeEventListener('pointerdown', this._onDown); w.removeEventListener('scroll', this._onScroll);
+  }
+  isOpen(){ var d = new Date(this.state.now + (new Date().getTimezoneOffset() + 330) * 60000); var h = d.getHours(); return h >= 16 && h < 22; }
+  goTo(n){
+    var len = C_F.length, ni = ((n % len) + len) % len, self = this;
+    if(ni === this.state.i) return;
+    this.setState({prev: this.state.i, i: ni, sw: true});
+    clearTimeout(this._swt); this._swt = setTimeout(function(){ self.setState({sw: false}); }, 700);
+  }
+  burst(x, y, n){
+    if(this._reduce) return;
+    var pool = document.querySelectorAll('.burst i');
+    for(var i = 0; i < n && i < pool.length; i++){
+      var el = pool[i], a = Math.random() * Math.PI * 2, r = 40 + Math.random() * 70;
+      el.style.left = x + 'px'; el.style.top = y + 'px'; el.style.background = C_SPR[i % C_SPR.length];
+      el.style.setProperty('--dx', (Math.cos(a) * r).toFixed(0) + 'px'); el.style.setProperty('--dy', (Math.sin(a) * r - 30).toFixed(0) + 'px'); el.style.setProperty('--r', (Math.random() * 480 - 240).toFixed(0) + 'deg');
+      el.classList.remove('go'); void el.offsetWidth; el.classList.add('go');
+    }
+  }
+  toast(msg){ var self = this; this.setState({toast: msg, toastOn: true}); clearTimeout(this._tt); this._tt = setTimeout(function(){ self.setState({toastOn: false}); }, 2400); }
+  addToCart(fromEl, label){
+    var self = this, d = document, cart = d.querySelector('.cartbtn'), fl = d.querySelector('.flyer');
+    var done = function(){ self.setState({cart: self.state.cart + 1}); if(cart){ cart.classList.remove('wig'); void cart.offsetWidth; cart.classList.add('wig'); } self.toast(label + ' added to cart'); };
+    if(!fromEl || !cart || !fl || this._reduce || !fl.animate){ done(); return; }
+    var a = fromEl.getBoundingClientRect(), b = cart.getBoundingClientRect();
+    if(b.bottom < 0){ done(); return; }
+    var x0 = a.left + a.width / 2 - 35, y0 = a.top + a.height / 3 - 35, x1 = b.left + b.width / 2 - 35, y1 = b.top + b.height / 2 - 35;
+    fl.animate([{opacity:1, transform:'translate(' + x0 + 'px,' + y0 + 'px) scale(1.4)'},{opacity:1, transform:'translate(' + ((x0 + x1) / 2) + 'px,' + (Math.min(y0, y1) - 120) + 'px) scale(.9)', offset:.55},{opacity:.9, transform:'translate(' + x1 + 'px,' + y1 + 'px) scale(.3)'}], {duration:800, easing:'cubic-bezier(.5,0,.4,1)'}).onfinish = done;
+  }
+  renderVals(){
+    var self = this, s = this.state, f = C_F[s.i];
+    var go = function(e){ var h = e.currentTarget.getAttribute('href'); if(h && h.charAt(0) === '#' && h.length > 1){ e.preventDefault(); var t = document.querySelector(h); if(t) window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY, behavior: self._reduce ? 'auto' : 'smooth'}); } };
+    var base = C_BASES.filter(function(b){ return b.id === s.base; })[0];
+    var n = s.scoops.length, cone = s.base === 'cone', sw = cone ? 128 : 150;
+    var POS = cone ? [[0,238],[-30,236],[30,236]] : [[0,112],[-44,110],[44,110]];
+    var lay = n === 1 ? [[0, POS[0][1]]] : n === 2 ? [POS[1], POS[2]] : [POS[1], POS[2], [0, POS[0][1] + (cone ? 70 : 72)]];
+    var stack = s.scoops.map(function(sc, i){ var x = C_F[sc.f], c = C_COL[sc.f], p = lay[i] || lay[0]; return { key: sc.k, name: x.name, c1: c[0], c2: c[1], c3: c[2], bit: c[3], style: 'width: ' + sw + 'px; margin-left: ' + (p[0] - sw / 2) + 'px; bottom: ' + p[1] + 'px; z-index: ' + (i === 2 ? 14 : 10 + i) }; });
+    var sTop = n ? Math.max.apply(null, lay.map(function(p){ return p[1]; })) + sw * .74 : 0, spread = n === 2 ? sw * 1.55 : sw * .95, sH = Math.round(spread * .5), sauces = [], pieces = [];
+    s.tops.forEach(function(id, ti){
+      var t = C_TOPS.filter(function(x){ return x.id === id; })[0];
+      if(t.kind === 'sauce'){ sauces.push({ key: id + n, c: t.c, style: 'width: ' + spread + 'px; height: ' + sH + 'px; margin-left: ' + (-spread / 2) + 'px; bottom: ' + (sTop + 4 - sH - sauces.length * 6) + 'px' }); return; }
+      for(var j = 0; j < 7; j++){ var sd = ti * 19 + j * 5 + id.length * 3; var st = 'left: ' + (6 + cRand(sd) * 82).toFixed(1) + '%; top: ' + (4 + cRand(sd + 1) * 55).toFixed(1) + '%; --r: ' + Math.round(cRand(sd + 2) * 180 - 90) + 'deg; animation-delay: ' + (j * 60) + 'ms'; if(t.cls === 'sprk') st += '; background: ' + C_SPR[j % C_SPR.length]; pieces.push({ key: id + j + n, cls: t.cls, style: st }); }
+    });
+    var price = base.price + s.scoops.reduce(function(a, sc){ return a + C_F[sc.f].price; }, 0) + s.tops.reduce(function(a, id){ return a + C_TOPS.filter(function(x){ return x.id === id; })[0].price; }, 0);
+    var ps = String(price); while(ps.length < 3) ps = '0' + ps;
+    return {
+      t: { key: 'k' + s.i, name: f.name, desc: f.desc, cone: f.cone, pg: f.pg, c1: f.c1, c2: f.c2, hd: f.hd },
+      swCls: s.sw ? 'sw' : '',
+      pause: function(){ self._paused = true; }, resume: function(){ self._paused = false; },
+      next: function(){ self.goTo(self.state.i + 1); }, prev: function(){ self.goTo(self.state.i - 1); },
+      slides: C_F.map(function(x, i){ return { name: x.name, cone: x.cone, scoop: x.scoop, ing: x.ing, tb: x.tb,
+        cls: i === s.i ? 'on' : (i === s.prev ? 'out' : ''), thCls: i === s.i ? 'on' : '', sel: i === s.i ? 'true' : 'false',
+        pick: function(){ self.goTo(i); },
+        add: function(e){ self.burst(e.clientX, e.clientY, 10); self.addToCart(e.currentTarget.closest('.fc'), x.name); },
+        tilt: function(e){ if(self._reduce) return; var el = e.currentTarget, r = el.getBoundingClientRect(); el.style.setProperty('--ry', (((e.clientX - r.left) / r.width - .5) * 8).toFixed(1) + 'deg'); el.style.setProperty('--rx', (((e.clientY - r.top) / r.height - .5) * -6).toFixed(1) + 'deg'); },
+        untilt: function(e){ e.currentTarget.style.setProperty('--rx', '0deg'); e.currentTarget.style.setProperty('--ry', '0deg'); }
+      }; }),
+      go: go,
+      cart: s.cart, hasCart: s.cart > 0,
+      toastMsg: s.toast, toastCls: s.toastOn ? 'show' : '',
+      introCls: s.intro ? '' : 'done',
+      openCls: self.isOpen() ? 'on' : '',
+      openTxt: self.isOpen() ? 'Open now · till 10 PM' : 'Opens 4 PM today',
+      toEnquiry: function(e){ e.preventDefault(); var f = document.getElementById('enquiry'); if(!f) return; f.classList.add('in'); window.scrollTo({top: f.getBoundingClientRect().top + window.scrollY - 24, behavior: self._reduce ? 'auto' : 'smooth'}); setTimeout(function(){ var n = document.getElementById('bn'); if(n) n.focus({preventScroll: true}); f.classList.remove('flash'); void f.offsetWidth; f.classList.add('flash'); }, self._reduce ? 0 : 700); },
+      addHero: function(e){ self.burst(e.clientX, e.clientY, 10); self.addToCart(document.querySelector('.cone.on') || e.currentTarget, C_F[self.state.i].name); },
+      addSunday: function(e){ self.burst(e.clientX, e.clientY, 10); self.toast('Brownie Supernova: this Sunday only'); },
+      directions: function(){ self.toast('Opens Google Maps once the address is added'); },
+      whatsapp: function(e){ e.preventDefault(); self.toast('Opens WhatsApp chat with Cosmic'); },
+      isCone: s.base === 'cone', isCup: s.base === 'cup', baseKey: s.base,
+      bases: C_BASES.map(function(b){ var on = s.base === b.id; return { name: b.name, on: on ? 'true' : 'false', cls: on ? 'on' : '', pick: function(){ self.setState({base: b.id}); } }; }),
+      scoopPills: C_F.map(function(x, i){ return { name: x.name, img: x.scoop, add: function(){ if(self.state.scoops.length >= 3){ self.toast('Three scoops. Any more is structural.'); return; } var u = self.state.uid + 1; self.setState({scoops: self.state.scoops.concat([{f: i, k: 'k' + u}]), uid: u}); } }; }),
+      toppings: C_TOPS.map(function(t){ var on = s.tops.indexOf(t.id) >= 0; return { name: t.name, on: on ? 'true' : 'false', cls: on ? 'on' : '', toggle: function(){ var c = self.state.tops; self.setState({tops: on ? c.filter(function(x){ return x !== t.id; }) : c.concat([t.id])}); } }; }),
+      stack: stack, sauces: n ? sauces : [], hasTops: n > 0 && pieces.length > 0, topsStyle: 'width: ' + (spread * .85) + 'px; margin-left: ' + (-spread * .425) + 'px; height: ' + Math.round(sw * .45) + 'px; bottom: ' + (sTop - sw * .45) + 'px', pieces: pieces,
+      price: price, digits: ps.split('').map(function(ch){ return { style: 'transform: translateY(-' + (+ch * 10) + '%)' }; }),
+      buildHint: n === 0 ? 'Add a scoop to start' : n + (n === 1 ? ' scoop' : ' scoops') + ' in a ' + base.name.toLowerCase(),
+      resetBuild: function(){ self.setState({scoops: [], tops: []}); },
+      addBuild: function(){ if(!self.state.scoops.length){ self.toast('Add at least one scoop first'); return; } var el = document.querySelectorAll('.bstage .sc'); self.addToCart(el[el.length - 1] || document.querySelector('.bstage'), 'Your custom scoop'); },
+      pkgs: C_PKGS.map(function(k, i){ var on = s.pkg === i; return { name: k.name, desc: k.desc, cls: on ? 'on' : '', on: on ? 'true' : 'false', pick: function(){ self.setState({pkg: i}); } }; }),
+      pkgName: s.pkg >= 0 ? C_PKGS[s.pkg].name : 'Not sure yet',
+      pkgSelect: function(e){ self.setState({pkg: C_PKGS.map(function(p){ return p.name; }).indexOf(e.target.value)}); },
+      enqLabel: s.sent ? 'Enquiry sent!' : 'Send my enquiry',
+      enquire: function(e){
+        e.preventDefault();
+        var f = e.currentTarget, v = function(n){ var el = f.querySelector('[name=' + n + ']'); return el ? String(el.value || '').trim() : ''; };
+        if(v('website') || Date.now() - self.state.t0 < 3000){ self.toast('Something went wrong. Please try again.'); return; }
+        var phone = v('phone').replace(/[\s-]/g, '').replace(/^(\+91|0)/, '');
+        var err = { name: v('name').length < 2, phone: !/^[6-9][0-9]{9}$/.test(phone), date: !!v('date') && v('date') < new Date().toISOString().slice(0, 10) };
+        if(err.name || err.phone || err.date){ self.setState({err: err}); var first = f.querySelector(err.name ? '#bn' : err.phone ? '#bp' : '#bd'); if(first) first.focus(); return; }
+        var b = f.querySelector('button[type=submit]'), r = b.getBoundingClientRect(); self.setState({sent: true, err: {}}); self.burst(r.left + r.width / 2, r.top + r.height / 2, 14); self.toast('Enquiry sent. We will call you back soon.');
+      },
+      err: { name: !!s.err.name, phone: !!s.err.phone, date: !!s.err.date, nameInv: s.err.name ? 'true' : 'false', phoneInv: s.err.phone ? 'true' : 'false', dateInv: s.err.date ? 'true' : 'false' },
+      today: new Date().toISOString().slice(0, 10),
+      cookieCls: s.cookie ? 'show' : '',
+      cookieYes: function(){ try { window.localStorage.setItem('cosmic-consent', 'all'); } catch(e){} self.setState({cookie: false}); },
+      cookieNo: function(){ try { window.localStorage.setItem('cosmic-consent', 'essential'); } catch(e){} self.setState({cookie: false}); }
+    };
+  }
+}
+</script>
+</body>
+</html>

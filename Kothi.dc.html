@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cosmic · How We Make It</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&amp;family=Permanent+Marker&amp;family=Poppins:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;font-family:Poppins,sans-serif;background:#120B1A;color:#F3ECE4}
+a{color:#F3ECE4}a:hover{color:#F4B6CF}
+*{box-sizing:border-box}
+.pg{position:relative;width:100%;overflow:clip}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.ey{font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#C9A3B6}
+.serif{font-family:Fraunces,Georgia,serif;font-weight:300;letter-spacing:-.02em}
+.serif i{font-style:italic;color:#F4B6CF}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(18,11,26,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(243,236,228,.07)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:'Permanent Marker',cursive;font-size:24px;text-decoration:none}
+.nav .links{display:flex;gap:34px;font-size:13px;letter-spacing:.04em}
+.nav .links a{text-decoration:none;opacity:.75;transition:opacity .3s}
+.nav .links a:hover{opacity:1;color:#F3ECE4}
+.btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 24px;border-radius:999px;background:#F3ECE4;color:#120B1A;font-size:13px;font-weight:600;letter-spacing:.04em;text-decoration:none;transition:background .3s,transform .3s}
+.btn:hover{background:#F4B6CF;color:#120B1A}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:#F3ECE4;border:1px solid rgba(243,236,228,.25)}
+.btn.ghost:hover{border-color:#F3ECE4;background:transparent;color:#F3ECE4}
+/* hero */
+.hero{padding:120px 0 70px;text-align:center}
+.hero h1{margin:26px auto 26px;font-size:clamp(52px,7.4vw,112px);line-height:1;max-width:980px}
+.hero p{max-width:540px;margin:0 auto;font-size:17px;line-height:1.75;color:#BDB1C4}
+.scene{margin:80px auto 0;max-width:1180px;border-radius:28px;overflow:hidden;box-shadow:0 60px 120px -30px rgba(0,0,0,.7);border:1px solid rgba(243,236,228,.07)}
+.scene svg{width:100%;height:auto;display:block}
+.cap{display:flex;justify-content:space-between;max-width:1180px;margin:18px auto 0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8E8298}
+/* steps */
+.steps{padding:170px 0 40px}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:90px}
+.sh h2{margin:18px 0 0;font-size:clamp(40px,4.6vw,68px);line-height:1.05}
+.sh p{max-width:340px;margin:0;color:#BDB1C4;line-height:1.7;font-size:15px}
+.row{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:start;padding:46px 0;border-top:1px solid rgba(243,236,228,.1);opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.row.in{opacity:1;transform:none}
+.row:last-child{border-bottom:1px solid rgba(243,236,228,.1)}
+.num{font-family:Fraunces,serif;font-weight:300;font-size:56px;line-height:1;color:#F4B6CF}
+.row h3{margin:4px 0 0;font-family:Fraunces,serif;font-weight:400;font-size:34px;letter-spacing:-.01em}
+.row p{margin:6px 0 0;font-size:16px;line-height:1.8;color:#BDB1C4}
+.row .tag{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#C9A3B6}
+/* quote */
+.quote{padding:170px 0;text-align:center}
+.quote blockquote{margin:0 auto;max-width:900px;font-size:clamp(34px,4.4vw,62px);line-height:1.2}
+.quote .by{margin-top:30px}
+/* cart */
+.cart{padding:0 0 170px}
+.cgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(243,236,228,.1);border:1px solid rgba(243,236,228,.1);border-radius:24px;overflow:hidden;margin-top:60px}
+.cc{background:#120B1A;padding:44px 36px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.cc b{font-family:Fraunces,serif;font-weight:400;font-size:26px}
+.cc p{margin:10px 0 0;font-size:15px;line-height:1.7;color:#BDB1C4}
+.cc .n{font-size:11px;letter-spacing:.24em;color:#C9A3B6}
+.clay{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:center;margin-top:120px}
+.clay .ph{aspect-ratio:1/1;border-radius:50%;overflow:hidden;max-width:440px;justify-self:center;box-shadow:0 50px 100px -30px rgba(0,0,0,.7)}
+.clay .ph img{width:100%;height:100%;object-fit:cover}
+.clay h2{margin:18px 0 20px;font-size:clamp(38px,4.2vw,60px);line-height:1.05}
+.clay p{color:#BDB1C4;line-height:1.8;font-size:16px;margin:0}
+/* cta */
+.cta{padding:130px 0;text-align:center;background:#F3ECE4;color:#120B1A}
+.cta .ey{color:#8A2F5A}
+.cta h2{margin:20px 0 36px;font-size:clamp(46px,6vw,92px);line-height:1}
+.cta h2 i{color:#8A2F5A}
+.cta .btn{background:#120B1A;color:#F3ECE4}
+.cta .btn:hover{background:#8A2F5A;color:#fff}
+.cta .btn.ghost{background:transparent;color:#120B1A;border-color:rgba(18,11,26,.3)}
+.ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.foot{padding:30px 0;font-size:12px;color:#8E8298}
+.foot .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot a{color:#BDB1C4}
+@media (max-width:860px){
+.wrap{padding:0 20px}.nav .links{display:none}
+.hero{padding:80px 0 40px}.scene{margin:50px 20px 0;border-radius:18px}.cap{padding:0 20px;flex-direction:column;gap:4px}
+.steps,.quote{padding:110px 0}.sh{flex-direction:column;align-items:flex-start;margin-bottom:50px}
+.row{grid-template-columns:minmax(0,1fr);gap:10px;padding:34px 0}.num{font-size:40px}
+.cgrid,.clay{grid-template-columns:minmax(0,1fr)}.clay{gap:40px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.row{opacity:1;transform:none}}
+.scene svg *{animation-duration:16s;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
+.p-cap{opacity:0;animation-name:pcap}
+.p-cap.k2{animation-delay:3.2s}.p-cap.k3{animation-delay:6.4s}.p-cap.k4{animation-delay:9.6s}.p-cap.k5{animation-delay:12.8s}
+@keyframes pcap{0%{opacity:0;transform:translateY(10px)}3%,17%{opacity:1;transform:none}20%,100%{opacity:0;transform:translateY(-6px)}}
+.p-bar{animation-name:pbar;animation-timing-function:linear!important}@keyframes pbar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.p-jug{animation-name:pjug}@keyframes pjug{0%{opacity:0;transform:translate(30px,-20px)}4%,15%{opacity:1;transform:rotate(0)}19%,100%{opacity:0}}
+.p-stream{stroke-dasharray:260;animation-name:pstr}@keyframes pstr{0%,4%{stroke-dashoffset:260}8%,14%{stroke-dashoffset:0}18%,100%{stroke-dashoffset:-260}}
+.p-mix{animation-name:pmix}@keyframes pmix{0%{transform:scaleY(0)}16%,82%{transform:scaleY(1)}90%{transform:scaleY(.72)}97%{transform:scaleY(.72)}100%{transform:scaleY(0)}}
+.p-mixc{animation-name:pmixc}@keyframes pmixc{0%,55%{fill:#FFF3DC}75%,100%{fill:#F9D3E1}}
+.p-bumps{opacity:0;animation-name:pbump}@keyframes pbump{0%,62%{opacity:0}74%,98%{opacity:1}100%{opacity:0}}
+.p-ice .c{opacity:0;animation-name:pice}
+.c2{animation-delay:.15s}.c3{animation-delay:.3s}.c4{animation-delay:.45s}.c5{animation-delay:.6s}
+@keyframes pice{0%,20%{opacity:0;transform:translateY(-260px)}28%,96%{opacity:1;transform:none}100%{opacity:0}}
+.p-salt{opacity:0;animation-name:psalt}@keyframes psalt{0%,29%{opacity:0}34%,96%{opacity:1}100%{opacity:0}}
+.p-drop{opacity:0;animation-name:pdrop}@keyframes pdrop{0%,20%{opacity:0;transform:translateY(-60px)}24%{opacity:1}30%{opacity:0;transform:translateY(120px)}100%{opacity:0}}
+.p-merc{animation-name:pmerc}@keyframes pmerc{0%,24%{transform:scaleY(.85)}40%,96%{transform:scaleY(.22)}100%{transform:scaleY(.85)}}
+.p-t1{animation-name:pt1}@keyframes pt1{0%,26%{opacity:1}34%,96%{opacity:.2}100%{opacity:1}}
+.p-t2{opacity:.2;animation-name:pt2}@keyframes pt2{0%,30%{opacity:.2}40%,96%{opacity:1}100%{opacity:.2}}
+.p-wheel{animation-name:pwheel;animation-timing-function:linear!important}@keyframes pwheel{0%,40%{transform:rotate(0)}80%,100%{transform:rotate(1800deg)}}
+.p-rib{animation-name:prib;animation-timing-function:linear!important}@keyframes prib{0%,40%{transform:translateX(0)}80%,100%{transform:translateX(-120px)}}
+.p-swirl{opacity:0;animation-name:pswirl}@keyframes pswirl{0%,40%{opacity:0}44%,76%{opacity:.7}80%,100%{opacity:0}}
+.p-frost{opacity:0;animation-name:pfrost}@keyframes pfrost{0%,55%{opacity:0}66%,96%{opacity:.9}100%{opacity:0}}
+.p-scoop{opacity:0;animation-name:pscoop}@keyframes pscoop{0%,80%{opacity:0;transform:translate(430px,300px)}83%{opacity:1;transform:translate(430px,300px)}88%{transform:translate(430px,150px)}94%{opacity:1;transform:translate(216px,470px)}99%{opacity:1;transform:translate(216px,470px)}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.p-cap.k1,.p-ice .c,.p-salt,.p-bumps{opacity:1!important}.p-mix{transform:none}}
+
+@keyframes tw{50%{opacity:.35}}
+
+.mcap{display:none}
+@media (max-width:760px){
+html,body{-webkit-text-size-adjust:100%}
+.nav .wrap{height:64px}.nav .btn{height:40px;padding:0 16px}
+.hero h1{font-size:44px}.hero p{font-size:15px}
+.scene{overflow:hidden}
+.scene svg{width:171%;max-width:none;margin-left:-4%}
+.scene svg .p-cap,.scene svg .p-bar,.scene svg rect[x="760"]{display:none}
+.mcap{display:block;position:relative;height:150px;margin:22px 20px 0}
+.mcap .p-cap{position:absolute;inset:0;animation-duration:16s;animation-iteration-count:infinite}
+.mcap b{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#F4B6CF;font-weight:600}
+.mcap h3{margin:6px 0 6px;font-family:Fraunces,serif;font-weight:400;font-size:30px}
+.mcap p{margin:0;font-size:15px;line-height:1.6;color:#BDB1C4}
+.sh h2{font-size:36px}
+.row h3{font-size:26px}.row p{font-size:15px}
+.quote blockquote{font-size:30px}
+.cc{padding:30px 24px;min-height:0}
+.clay .ph{max-width:260px}
+.cta h2{font-size:44px}
+.foot .wrap{flex-direction:column}
+}
+.cartshow{position:relative;margin-top:70px;padding:60px 20px 40px;border-radius:28px;background:radial-gradient(60% 70% at 50% 45%,#3A2350 0%,#1A1024 70%);border:1px solid rgba(243,236,228,.08);display:flex;flex-direction:column;align-items:center;overflow:hidden}
+.cartshow img{position:relative;width:min(520px,90%);filter:drop-shadow(0 40px 40px rgba(0,0,0,.55));animation:cfloat 6s ease-in-out infinite}
+@keyframes cfloat{50%{transform:translateY(-8px)}}
+.cartshow .glow{position:absolute;left:50%;bottom:40px;width:60%;height:40px;margin-left:-30%;border-radius:50%;background:rgba(244,182,207,.18);filter:blur(20px)}
+.cartshow .loc{position:relative;margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#C9A3B6}
+@media (max-width:760px){.cartshow{margin-top:40px;padding:36px 12px 28px}.cartshow .loc{font-size:10px;letter-spacing:.14em;text-align:center}}
+
+
+/* scoop buttons */
+.btn{overflow:hidden!important;isolation:isolate;transition:transform .3s cubic-bezier(.34,1.56,.64,1),color .35s,translate .25s ease-out!important}
+.btn::before{display:block!important;content:""!important;position:absolute!important;left:var(--x,50%)!important;top:var(--y,50%)!important;width:0!important;height:0!important;border-radius:50%!important;background:var(--fill)!important;transform:translate(-50%,-50%)!important;transition:width .55s cubic-bezier(.65,0,.35,1),height .55s cubic-bezier(.65,0,.35,1)!important;animation:none!important;z-index:-1!important}
+.btn:hover::before{width:260%!important;height:600%!important}
+.btn::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);background-size:250% 100%;background-position:130% 0;pointer-events:none;z-index:1}
+.btn:hover::after{animation:sheen .9s ease .15s}
+@keyframes sheen{to{background-position:-30% 0}}
+.btn:active{transform:scale(.94,.9)!important}
+.btn .ic{display:inline-block;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+@media (prefers-reduced-motion:reduce){.btn::before{transition:none!important}.btn:hover::after{animation:none}}
+
+.btn{--fill:#F4B6CF;--dc:#F3ECE4;position:relative}
+.btn.ghost{--fill:#F3ECE4;--dc:transparent}
+.btn.ghost:hover{color:#120B1A!important}
+.btn:hover{background-color:#F3ECE4}
+.cta .btn{--fill:#8A2F5A;--dc:#120B1A}
+.cta .btn:hover{background-color:#120B1A}
+.cta .btn.ghost{--fill:#120B1A;--dc:transparent}
+.cta .btn.ghost:hover{color:#F3ECE4!important}
+</style>
+</helmet>
+<div class="pg">
+<nav class="nav"><div class="wrap">
+<a class="logo" href="Main.dc.html" style="display: flex; align-items: center; gap: 10px"><img src="assets/badge-front.png" alt="" style="width: 42px; height: 42px">Cosmic</a>
+<div class="links"><a href="#process">Process</a><a href="#cart">The cart</a><a href="#clay">Clay cups</a><a href="Main.dc.html">Home</a></div>
+<a class="btn" href="Main.dc.html#enquiry">Order now</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="ey">How we make it</div>
+<h1 class="serif">This thing is old.<br><i>The idea isn't.</i></h1>
+<p>Every Cosmic scoop is churned in a kothi: a hand-built machine, a barrel of ice and salt, and a lot of patience.</p>
+</div>
+<div class="scene" role="img" aria-label="Animated cutaway of the kothi showing five steps: milk poured into a steel canister, ice and salt packed around it in a wooden barrel, the wheel turning the canister, the mix thickening, and a scoop served into a clay cup"><svg viewBox="0 0 1200 600">
+<defs>
+<radialGradient id="pbg" cx="32%" cy="50%" r="80%"><stop offset="0" stop-color="#2C1A3C"></stop><stop offset="1" stop-color="#120B1A"></stop></radialGradient>
+<linearGradient id="pwood" x1="0" x2="1"><stop offset="0" stop-color="#6E4222"></stop><stop offset=".5" stop-color="#A86E3C"></stop><stop offset="1" stop-color="#6E4222"></stop></linearGradient>
+<linearGradient id="psteel" x1="0" x2="1"><stop offset="0" stop-color="#8C919B"></stop><stop offset=".45" stop-color="#E4E7EC"></stop><stop offset="1" stop-color="#8C919B"></stop></linearGradient>
+<pattern id="prib" width="24" height="10" patternUnits="userSpaceOnUse"><rect width="24" height="10" fill="none"></rect><path d="M0 0 V10" stroke="#6B707A" stroke-width="2" opacity=".35"></path></pattern>
+<clipPath id="pcan"><rect x="372" y="200" width="116" height="290" rx="6"></rect></clipPath>
+</defs>
+<rect width="1200" height="600" fill="url(#pbg)"></rect>
+<g fill="#F3ECE4" opacity=".5"><circle cx="90" cy="70" r="1.4"></circle><circle cx="300" cy="40" r="1"></circle><circle cx="640" cy="90" r="1.4"></circle><circle cx="760" cy="40" r="1"></circle><circle cx="1110" cy="80" r="1.4"></circle><circle cx="1040" cy="540" r="1"></circle><circle cx="60" cy="480" r="1.2"></circle></g>
+<ellipse cx="430" cy="548" rx="260" ry="16" fill="#000" opacity=".35"></ellipse>
+
+<!-- wheel + shaft -->
+<path d="M430 200 V110" stroke="#C6CAD2" stroke-width="8"></path>
+<path d="M300 110 H560" stroke="#8A2F5A" stroke-width="10" stroke-linecap="round"></path>
+<path d="M310 110 V210 M550 110 V210" stroke="#8A2F5A" stroke-width="10" stroke-linecap="round"></path>
+<g class="p-wheel" style="transform-origin:430px 110px"><circle cx="430" cy="110" r="62" fill="none" stroke="#F4B6CF" stroke-width="7"></circle><path d="M430 48 V172 M368 110 H492 M386 66 L474 154 M474 66 L386 154" stroke="#F4B6CF" stroke-width="4"></path><circle cx="430" cy="110" r="10" fill="#F3ECE4"></circle><circle cx="430" cy="48" r="7" fill="#F3ECE4"></circle></g>
+
+<!-- barrel (cut open) -->
+<path d="M270 210 H590 L574 530 H286 Z" fill="#1C1026"></path>
+<path d="M270 210 H292 L306 530 H286 Z M568 210 H590 L574 530 H554 Z" fill="url(#pwood)"></path>
+<path d="M286 530 H574 L572 544 H288 Z" fill="#6E4222"></path>
+<g stroke="#C6CAD2" stroke-width="5"><path d="M268 260 H294 M566 260 H592 M276 440 H300 M560 440 H584"></path></g>
+
+<!-- ice + salt -->
+<g class="p-ice"><g fill="#D6ECF7" stroke="#9CC3D9" stroke-width="1.5">
+<rect class="c c1" x="310" y="470" width="44" height="40" rx="7"></rect><rect class="c c2" x="316" y="420" width="40" height="40" rx="7"></rect><rect class="c c3" x="308" y="366" width="44" height="42" rx="7"></rect><rect class="c c4" x="316" y="312" width="40" height="42" rx="7"></rect><rect class="c c5" x="310" y="258" width="42" height="42" rx="7"></rect>
+<rect class="c c1" x="506" y="470" width="44" height="40" rx="7"></rect><rect class="c c2" x="502" y="418" width="42" height="42" rx="7"></rect><rect class="c c3" x="508" y="364" width="40" height="42" rx="7"></rect><rect class="c c4" x="502" y="310" width="44" height="42" rx="7"></rect><rect class="c c5" x="508" y="256" width="40" height="42" rx="7"></rect></g>
+<g class="p-salt" fill="#fff"><circle cx="320" cy="250" r="3"></circle><circle cx="344" cy="300" r="2.5"></circle><circle cx="330" cy="356" r="3"></circle><circle cx="352" cy="410" r="2.5"></circle><circle cx="322" cy="462" r="3"></circle><circle cx="518" cy="248" r="3"></circle><circle cx="540" cy="302" r="2.5"></circle><circle cx="512" cy="358" r="3"></circle><circle cx="536" cy="410" r="2.5"></circle><circle cx="520" cy="464" r="3"></circle></g></g>
+
+<!-- canister -->
+<rect x="366" y="194" width="128" height="302" rx="10" fill="url(#psteel)"></rect>
+<g clip-path="url(#pcan)">
+<rect x="372" y="200" width="116" height="290" fill="#2A1E30"></rect>
+<g class="p-mix" style="transform-origin:430px 490px"><rect class="p-mixc" x="372" y="290" width="116" height="200"></rect><path class="p-bumps" d="M372 292 q10 -12 20 0 q10 -12 20 0 q10 -12 20 0 q10 -12 20 0 q10 -12 20 0 q10 -12 16 0" fill="#FBE3EC"></path></g>
+<rect class="p-rib" x="372" y="200" width="240" height="290" fill="url(#prib)"></rect>
+<g class="p-swirl" fill="none" stroke="#8A2F5A" stroke-width="3" stroke-linecap="round" opacity=".7"><path d="M400 400 q30 -24 60 0"></path><path d="M400 440 q30 -24 60 0"></path></g>
+</g>
+<g class="p-frost" fill="#fff"><circle cx="370" cy="260" r="3"></circle><circle cx="490" cy="300" r="3"></circle><circle cx="370" cy="380" r="2.5"></circle><circle cx="490" cy="420" r="3"></circle><circle cx="372" cy="460" r="2"></circle></g>
+
+<!-- jug + pour -->
+<g class="p-jug"><path d="M520 70 L590 50 L610 120 L548 138 Z" fill="#F3ECE4"></path><path d="M520 70 L500 84" stroke="#F3ECE4" stroke-width="8" stroke-linecap="round"></path><path d="M604 70 q26 6 16 36" fill="none" stroke="#F3ECE4" stroke-width="6"></path>
+<path class="p-stream" d="M502 88 C470 120 450 150 440 280" stroke="#FFF3DC" stroke-width="9" fill="none" stroke-linecap="round"></path></g>
+
+<!-- falling ice for step 2 -->
+<g class="p-drop" fill="#D6ECF7" stroke="#9CC3D9"><rect x="316" y="150" width="30" height="28" rx="6"></rect><rect x="512" y="140" width="30" height="28" rx="6"></rect></g>
+
+<!-- thermometer -->
+<g><rect x="624" y="250" width="20" height="200" rx="10" fill="#2A1E30" stroke="#F3ECE4" stroke-opacity=".4" stroke-width="2"></rect><circle cx="634" cy="460" r="17" fill="#8FC7F0"></circle>
+<rect class="p-merc" x="629" y="262" width="10" height="194" rx="5" fill="#8FC7F0" style="transform-origin:634px 456px"></rect>
+<text class="p-t1" x="656" y="268" font-family="Poppins" font-size="15" font-weight="600" fill="#F3ECE4">+4°C</text><text class="p-t2" x="656" y="420" font-family="Poppins" font-size="15" font-weight="600" fill="#8FC7F0">-15°C</text></g>
+
+<!-- clay cup + scoop -->
+<g transform="translate(160 486)"><path d="M0 0 C6 34 26 44 56 44 C86 44 106 34 112 0 Z" fill="#C8662F"></path><ellipse cx="56" cy="0" rx="56" ry="8" fill="#9A4A20"></ellipse></g>
+<g class="p-scoop"><circle cx="0" cy="0" r="30" fill="#FBE3EC"></circle><path d="M-28 6 q7 10 14 2 q7 10 14 2 q7 10 14 2 q7 10 14 0" fill="#F4B6CF"></path><ellipse cx="-10" cy="-10" rx="9" ry="5" fill="#fff" opacity=".8"></ellipse></g>
+
+<!-- labels -->
+<g font-family="Poppins" font-size="12" font-weight="600" letter-spacing="1.5" fill="#BDB1C4">
+<path d="M270 330 H216" stroke="#BDB1C4" stroke-opacity=".4"></path><text x="100" y="334">WOODEN BARREL</text>
+<path d="M366 230 H216" stroke="#BDB1C4" stroke-opacity=".4"></path><text x="96" y="234">STEEL CANISTER</text>
+<path d="M310 400 H216" stroke="#BDB1C4" stroke-opacity=".4"></path><text x="126" y="404">ICE + SALT</text>
+<path d="M368 110 H216" stroke="#BDB1C4" stroke-opacity=".4"></path><text x="118" y="114">TURN WHEEL</text>
+</g>
+
+<!-- captions -->
+<g font-family="Fraunces, Georgia, serif">
+<g class="p-cap k1"><text x="760" y="250" font-size="16" font-family="Poppins" font-weight="600" letter-spacing="3" fill="#F4B6CF">STEP 01</text><text x="760" y="302" font-size="46" fill="#F3ECE4">The mix</text><text x="760" y="344" font-size="19" fill="#BDB1C4" font-family="Poppins">Fresh milk and flavour are poured</text><text x="760" y="372" font-size="19" fill="#BDB1C4" font-family="Poppins">into the steel canister.</text></g>
+<g class="p-cap k2"><text x="760" y="250" font-size="16" font-family="Poppins" font-weight="600" letter-spacing="3" fill="#F4B6CF">STEP 02</text><text x="760" y="302" font-size="46" fill="#F3ECE4">Ice + salt</text><text x="760" y="344" font-size="19" fill="#BDB1C4" font-family="Poppins">The barrel is packed with ice and salt.</text><text x="760" y="372" font-size="19" fill="#BDB1C4" font-family="Poppins">Salt drops it well below freezing.</text></g>
+<g class="p-cap k3"><text x="760" y="250" font-size="16" font-family="Poppins" font-weight="600" letter-spacing="3" fill="#F4B6CF">STEP 03</text><text x="760" y="302" font-size="46" fill="#F3ECE4">Keep it turning</text><text x="760" y="344" font-size="19" fill="#BDB1C4" font-family="Poppins">The wheel spins the canister non-stop,</text><text x="760" y="372" font-size="19" fill="#BDB1C4" font-family="Poppins">so ice crystals stay tiny.</text></g>
+<g class="p-cap k4"><text x="760" y="250" font-size="16" font-family="Poppins" font-weight="600" letter-spacing="3" fill="#F4B6CF">STEP 04</text><text x="760" y="302" font-size="46" fill="#F3ECE4">The change</text><text x="760" y="344" font-size="19" fill="#BDB1C4" font-family="Poppins">The liquid thickens into smooth,</text><text x="760" y="372" font-size="19" fill="#BDB1C4" font-family="Poppins">dense ice cream.</text></g>
+<g class="p-cap k5"><text x="760" y="250" font-size="16" font-family="Poppins" font-weight="600" letter-spacing="3" fill="#F4B6CF">STEP 05</text><text x="760" y="302" font-size="46" fill="#F3ECE4">Scoop</text><text x="760" y="344" font-size="19" fill="#BDB1C4" font-family="Poppins">Fresh from the kothi into</text><text x="760" y="372" font-size="19" fill="#BDB1C4" font-family="Poppins">a clay cup. Gone fast.</text></g>
+</g>
+<g><rect x="760" y="420" width="380" height="3" rx="1.5" fill="#F3ECE4" opacity=".15"></rect><rect class="p-bar" x="760" y="420" width="380" height="3" rx="1.5" fill="#F4B6CF" style="transform-origin:760px 421px"></rect></g>
+</svg>
+</div>
+<div class="mcap" aria-hidden="true"><div class="p-cap k1"><b>Step 01</b><h3>The mix</h3><p>Fresh milk and flavour are poured into the steel canister.</p></div><div class="p-cap k2"><b>Step 02</b><h3>Ice + salt</h3><p>The barrel is packed with ice and salt. Salt drops it well below freezing.</p></div><div class="p-cap k3"><b>Step 03</b><h3>Keep it turning</h3><p>The wheel spins the canister non-stop, so ice crystals stay tiny.</p></div><div class="p-cap k4"><b>Step 04</b><h3>The change</h3><p>The liquid thickens into smooth, dense ice cream.</p></div><div class="p-cap k5"><b>Step 05</b><h3>Scoop</h3><p>Fresh from the kothi into a clay cup. Gone fast.</p></div></div>
+<div class="cap"><span>Inside the kothi · 16 second loop</span><span>Marine Drive, Patna</span></div>
+</header>
+
+<section class="steps" id="process"><div class="wrap">
+<div class="sh"><div><div class="ey">The process</div><h2 class="serif">Five steps.<br><i>No shortcuts.</i></h2></div><p>The same method used for generations, before freezers made everything faster and flatter.</p></div>
+<div class="row" data-r="1"><div class="num">01</div><h3>The mix</h3><div><p>Fresh milk and the flavour ingredients go into the inner canister. Nothing powdered, nothing pre-mixed.</p><span class="tag">Fresh milk, every morning</span></div></div>
+<div class="row" data-r="1"><div class="num">02</div><h3>Ice + salt</h3><div><p>The canister sits inside a wooden barrel packed with crushed ice and salt. Salt pulls the temperature far below freezing.</p><span class="tag">Where the cold comes from</span></div></div>
+<div class="row" data-r="1"><div class="num">03</div><h3>Keep it moving</h3><div><p>The wheel turns the canister without stopping. Constant motion keeps ice crystals tiny, so the texture stays dense and smooth.</p><span class="tag">Yes, it really works like that</span></div></div>
+<div class="row" data-r="1"><div class="num">04</div><h3>The change</h3><div><p>Slowly the liquid thickens, coats the walls and becomes ice cream. You can hear it change as the machine works harder.</p><span class="tag">Takes patience. Worth it.</span></div></div>
+<div class="row" data-r="1"><div class="num">05</div><h3>Scoop</h3><div><p>Straight from the kothi into a clay cup or a waffle cone. Made the slow way, eaten pretty quickly.</p><span class="tag">Fresh batch. Gone fast.</span></div></div>
+</div></section>
+
+<section class="quote"><div class="wrap">
+<blockquote class="serif">"Freezers make ice cream <i>faster.</i><br>The kothi makes it <i>better.</i>"</blockquote>
+<div class="ey by">Cosmic Ice Cream</div>
+</div></section>
+
+<section class="cart" id="cart"><div class="wrap">
+<div class="sh" style="margin-bottom: 0"><div><div class="ey">The Cosmic cart</div><h2 class="serif">The machine is<br><i>part of the show.</i></h2></div><p>We don't hide the equipment in a kitchen. The kothi turns right in front of you, at the parlour and at your party.</p></div>
+<div class="cartshow"><div class="glow" aria-hidden="true"></div><img src="assets/cart.webp" alt="The Cosmic Ice Cream cart with its awning, lit menu boards and glass display" loading="lazy"><span class="loc">Parked at Marine Drive, Patna · 4 to 10 PM</span></div>
+<div class="cgrid">
+<div class="cc"><span class="n">01</span><div><b>Churned live</b><p>Every batch is made on the cart, so your scoop is minutes old.</p></div></div>
+<div class="cc"><span class="n">02</span><div><b>Built to travel</b><p>The same cart rolls into weddings, birthdays, college fests and brand events.</p></div></div>
+<div class="cc"><span class="n">03</span><div><b>Open to watch</b><p>Nothing behind a counter. Stand close, watch it turn, ask questions.</p></div></div>
+</div>
+<div class="clay" id="clay">
+<div class="ph"><img src="assets/clay.webp" alt="Handmade terracotta clay cup"></div>
+<div><div class="ey">Served in clay</div><h2 class="serif">Handmade cups,<br><i>earthy finish.</i></h2><p>Every scoop goes into a terracotta cup made by local potters. The clay keeps it cold a little longer and gives it that old-school taste.</p></div>
+</div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+<div class="ey">Earth-made. Cosmic-approved.</div>
+<h2 class="serif">Now go <i>eat some.</i></h2>
+<div class="ctas"><a class="btn" href="Main.dc.html#enquiry">Order now</a><a class="btn ghost" href="Main.dc.html">Book the cart</a></div>
+</div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 Cosmic Ice Cream · Marine Drive, Patna · 4 PM to 10 PM</span><span><a href="tel:+917372000150">+91 73720 00150</a> · <a href="https://www.instagram.com/cosmicicecream.in" target="_blank" rel="noopener">Instagram</a></span></div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  componentDidMount(){
+    var mag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(!b) return; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); if(!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) && e.pointerType === 'mouse') b.style.translate = ((e.clientX - r.left - r.width / 2) * .18).toFixed(1) + 'px ' + ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px'; };
+    var unmag = function(e){ var b = e.target.closest && e.target.closest('.btn'); if(b && !b.contains(e.relatedTarget)){ b.style.translate = '0 0'; var r = b.getBoundingClientRect(); b.style.setProperty('--x', (e.clientX - r.left) + 'px'); b.style.setProperty('--y', (e.clientY - r.top) + 'px'); } };
+    document.addEventListener('pointermove', mag, {passive:true}); document.addEventListener('pointerover', mag, {passive:true}); document.addEventListener('pointerout', unmag, {passive:true});
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:.25});
+    this._io = io; document.querySelectorAll('[data-r]').forEach(function(el){ io.observe(el); });
+  }
+  componentWillUnmount(){ if(this._io) this._io.disconnect(); }
+  renderVals(){ return {}; }
+}
+</script>
+</body>
+</html>
